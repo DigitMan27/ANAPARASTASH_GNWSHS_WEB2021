@@ -1,0 +1,16 @@
+<?xml version="1.0"?> 
+<Schedule xmlns ="schedule"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="schedule.xsd">
+        <Event>
+                <Title>Artificial Intelligence</Title>
+                <Lecture>
+					<Day>Wednesday</Day>
+					<Time>09:30-12:30</Time>
+				</Lecture>
+				<Lecture>
+					<Day>Monday</Day>
+					<Time>09:59-16:40</Time>
+				</Lecture>
+        </Event>
+</Schedule>
