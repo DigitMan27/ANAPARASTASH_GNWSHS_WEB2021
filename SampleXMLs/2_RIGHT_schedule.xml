@@ -1,7 +1,7 @@
-<?xml version="1.0"?>
-<Schedule xmlns ="schedule" 
+<?xml version="1.0"?> 
+<Schedule xmlns ="http://www.somesite.com/schema/schedule"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:noNamespaceSchemaLocation="schedule.xsd">
+                    xsi:schemaLocation="http://www.somesite.com/schema/schedule schedule.xsd">
         <Event>
                 <Title>Artificial Intelligence</Title>
                 <Lecture>

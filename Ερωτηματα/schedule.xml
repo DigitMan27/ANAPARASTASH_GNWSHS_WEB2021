@@ -4,11 +4,11 @@
 			xsi:noNamespaceSchemaLocation="schedule.xsd">
         <Event>
                 <Title>Artificial Intelligence</Title>
-                <Lecture>
+                <Lecture Classroom="B4">
 					<Day>Wednesday</Day>
 					<Time>09:30-12:30</Time>
 				</Lecture>
-				<Lecture>
+				<Lecture Classroom="B4">
 					<Day>Monday</Day>
 					<Time>09:59-16:40</Time>
 				</Lecture>
