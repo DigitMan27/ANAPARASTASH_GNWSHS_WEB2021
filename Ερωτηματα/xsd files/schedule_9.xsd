@@ -17,22 +17,19 @@
 	<xsd:complexType name="eventType">
 		<xsd:sequence>
 			<xsd:element name="Title" type="xsd:string"/>
-			<xsd:element name="Lecture" type="lecture_t" minOccurs="1" maxOccurs="9"/>
+			<xsd:element ref="Lecture" minOccurs="1" maxOccurs="9"/>
 		</xsd:sequence>
 	</xsd:complexType>
+
+	<!-- Global element Lecture -->
+	<xsd:element name="Lecture" type="lecture_t" />
 
 	<xsd:complexType name="lecture_t">
 		<xsd:sequence>
 			<xsd:element name="Day" type="days_t"/>
 			<xsd:element name="Time" type="time_t"/>
 		</xsd:sequence>
-		<xsd:attribute name="Classroom" use="required">
-			<xsd:simpleType>
-				<xsd:restriction base="xsd:string">
-					<xsd:maxLength value="7" />
-				</xsd:restriction>
-			</xsd:simpleType>
-		</xsd:attribute>
+		<xsd:attribute name="Classroom" type="classroom_t"/>
 	</xsd:complexType>
 
 	<xsd:simpleType name="days_t">
@@ -59,6 +56,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+<!-- ////////  Derived Types  //////// -->
 	<xsd:complexType name="lessonType">
 		<xsd:complexContent>
 			<xsd:extension base="eventType">
@@ -74,7 +72,7 @@
 			<xsd:restriction base="eventType">
 				<xsd:sequence>
 					<xsd:element name="Title" type="xsd:string"/>
-					<xsd:element name="Lecture" type="lecture_t" maxOccurs="1"/>
+					<xsd:element ref="Lecture" maxOccurs="1"/>
 				</xsd:sequence>
 			</xsd:restriction>
 		</xsd:complexContent>
@@ -85,18 +83,25 @@
 			<xsd:restriction base="eventType">
 				<xsd:sequence>
 					<xsd:element name="Title" type="xsd:string"/>
+					<xsd:element name="Lecture" minOccurs="1" maxOccurs="9">
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="lecture_t">
+									<xsd:sequence>
+										<xsd:element name="Day" type="days_t"/>
+										<xsd:element name="Time" type="time_t"/>
+									</xsd:sequence>
+									<xsd:attribute name="Classroom" type="classroom_t" use="prohibited"/>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="Classroom" use="prohibited">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:maxLength value="7" />
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:attribute>
 			</xsd:restriction>
 		</xsd:complexContent>
 	</xsd:complexType>
 
+<!-- Substitution Group -->
 	<xsd:element name="Lesson" type="lessonType" substitutionGroup="Event"/>
 	<xsd:element name="Seminar" type="seminarType" substitutionGroup="Event"/>
 	<xsd:element name="Lab" type="labType" substitutionGroup="Event"/>

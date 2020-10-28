@@ -79,9 +79,20 @@
 			<xsd:restriction base="eventType">
 				<xsd:sequence>
 					<xsd:element name="Title" type="xsd:string"/>
-					<xsd:element name="Lecture" type="lecture_t" minOccurs="1" maxOccurs="9"/>
+					<xsd:element name="Lecture" minOccurs="1" maxOccurs="9">
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="lecture_t">
+									<xsd:sequence>
+										<xsd:element name="Day" type="days_t"/>
+										<xsd:element name="Time" type="time_t"/>
+									</xsd:sequence>
+									<xsd:attribute name="Classroom" type="classroom_t" use="prohibited"/>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="Classroom" type="classroom_t" use="prohibited"/>
 			</xsd:restriction>
 		</xsd:complexContent>
 	</xsd:complexType>
