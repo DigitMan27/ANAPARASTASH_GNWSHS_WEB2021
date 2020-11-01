@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+	<style type="text/css">
+		table,td,th{
+			border: 2px black solid;
+			text-align: center;
+		}
+		#data{
+			text-align: center;
+			width: 50%; 
+			border-collapse: collapse;
+		}
+		#table_d{
+			position: relative;
+			width: 100%;
+			margin-top: 20px;
+			margin-left: 25%;
+			display: inline-block;
+		}
+		#file_c{
+			padding-top: 20px;
+		}
+		
+		#file_c1{
+			padding-top: 20px;
+		}
+		#xml{
+			padding-bottom: 10px;
+			padding-right: 10px;
+		}
+		#schema{
+			padding-top: 40px;
+		}
+		#submit{
+			position: relative;
+			margin-top: 10px;
+			margin-left: 10%;
+		}
+		#days{
+			position: relative;
+
+			margin-left: 5%;
+		}
+		#xml_in{
+			text-align: center;
+		}
+
+	</style>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>KRWEB</title>
+		</head>
+	<body style="background-color: rgba(255, 0, 0, 0.4); position: fixed; width: 100%;">
+		<h2 style="text-align: center;">Επεξεργασια xml αρχείου</h2>
+		<p></p>
+		<p></p>
+		<div id="xml_in">
+			<label id="lesson">Lesson:</label>
+			<input type="text" name="lesson" id="lesson_id"><br>
+			<p></p>
+			<label id="prof">Professor:</label>
+			<input type="text" name="prof" id="prof_id">
+			<input type="submit" name="Add" id="add" value="Add" onclick="add2Table()">
+			<p></p>
+			<label id="day">Day:</label>
+			<input type="text" name="day" id="day_id">
+		</div>
+		<p></p>
+		<p></p>
+		<div id="table_d">
+			<table id="data">
+				<tr>
+					<th>Lesson</th>
+					<th>Professor</th>
+					<th>Day</th>
+				</tr>
+			</table>
+			<label id="xml" for="xmlin">Choose xml file:</label>
+			<input type="file" name="xmlin" id="file_c" accept=".xml"><br>
+			<label id="schema" for="xsdin">Choose xml schema file:</label>
+			<input type="file" name="xsdin" id="file_c1" accept=".xsd"><br>
+			<input type="submit" name="send" id="submit" onclick="action()">
+			<select name="days" id="days">
+				<option value="Monday">Monday</option>
+				<option value="Tuesday">Tuesday</option>
+				<option value="Wednesday">Wednesday</option>
+				<option value="Thursday">Thursday</option>
+				<option value="Friday">Friday</option>
+				<option value="All">All Days</option>
+			</select>
+		</div>
+		<!-- Code -->
+		<script type="text/javascript">
+			function action(){
+				var files = document.getElementById("file_c").files;
+				var files_xsd = document.getElementById("file_c1").files;
+				var filter = $("#days").val();
+				if(filter=="All"){
+					filter = "Monday,Tuesday,Wednesday,Thursday,Friday";
+				}
+				console.log(files[0]);
+				if(files.length==0 || files_xsd.length==0){
+					window.alert('XML or XML Schema file not found');
+				}else{
+					$.ajax({
+						type: "POST",
+						url: "ask12.php",
+						data: {call:'sub', path1 : files[0].name, path2: files_xsd[0].name, days:filter},
+						success: function(data){
+							//console.log(data);
+							document.getElementById("data").innerHTML = data;
+							//document.write(data);
+						}
+					});
+				}
+			}
+
+			function add2Table(){
+				var files = document.getElementById("file_c").files;
+				lesson = $("#lesson_id").val();
+				prof = $("#prof_id").val();
+				day = $("#day_id").val();
+				console.log(prof);
+				if((lesson=='' || day.length==0) || files.length==0){
+					window.alert("Error on field or missing file");
+				}else{
+					$.ajax({
+						type: "POST",
+						url: "ask12.php",
+						data:{call:'add', lesson:lesson, Professor:prof, day:day, path1 : files[0].name},
+						success: function(data){
+							window.alert('Επιτυχης Εγγραφη στο xml αρχειο που επελεξες!');
+							console.log(data);
+						}
+					});
+				}
+			}
+		</script>
+	</body>
+</html>
