@@ -1,15 +1,5 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:variable name="DaysOfWeek">
-		<Week>
-			<Day id="Monday">1</Day>
-			<Day id="Tuesday">2</Day>
-			<Day id="Wednesday">3</Day>
-			<Day id="Thursday">4</Day>
-			<Day id="Friday">5</Day>
-		</Week>
-	</xsl:variable>
-	<xsl:variable name="x">0</xsl:variable>
 	<xsl:template match="/Schedule">
 		<html>
 			<head>
@@ -17,7 +7,7 @@
 			</head>
 			<body>
 				<table>
-					<tr>
+					<tr style="background-color:gray;">
 						<th>Lesson</th>
 						<th>Professor</th>
 						<th>Day</th>
