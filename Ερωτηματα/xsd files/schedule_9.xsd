@@ -17,12 +17,12 @@
 	<xsd:complexType name="eventType">
 		<xsd:sequence>
 			<xsd:element name="Title" type="xsd:string"/>
-			<xsd:element ref="Lecture" minOccurs="1" maxOccurs="9"/>
+			<xsd:element name="Lecture" type="lecture_t" minOccurs="1" maxOccurs="9"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
 	<!-- Global element Lecture -->
-	<xsd:element name="Lecture" type="lecture_t" />
+	<!-- <xsd:element name="Lecture" type="lecture_t" /> -->
 
 	<xsd:complexType name="lecture_t">
 		<xsd:sequence>
@@ -72,7 +72,7 @@
 			<xsd:restriction base="eventType">
 				<xsd:sequence>
 					<xsd:element name="Title" type="xsd:string"/>
-					<xsd:element ref="Lecture" maxOccurs="1"/>
+					<xsd:element name="Lecture" type="lecture_t" maxOccurs="1"/>
 				</xsd:sequence>
 			</xsd:restriction>
 		</xsd:complexContent>
