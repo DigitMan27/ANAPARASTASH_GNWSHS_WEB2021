@@ -23,14 +23,59 @@
 						<th>Day</th>
 					</tr>
 					<xsl:for-each select="//Lecture">
-						<xsl:variable name="curr_day"><xsl:value-of select="Day"/></xsl:variable>
-						<xsl:variable name="curr_day2"><xsl:value-of select="$DaysOfWeek/Week/Day[@id=$curr_day]/text()"/></xsl:variable>
-						<xsl:sort select="Day[text()=$DaysOfWeek/Week/Day/@id]" data-type="number"/>
-						<tr>
-							<td>
-								<xsl:value-of select="$curr_day2"/>
-							</td>
-						</tr>
+						<xsl:choose>
+							<xsl:when test="Day/text()='Monday'">
+								<tr style="background-color:#D241D5">
+									<td><xsl:value-of select="../Title"/></td>
+									<td><xsl:value-of select="../Professor"/></td>
+									<td><xsl:value-of select="Day"/></td>
+								</tr>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:for-each>
+					<xsl:for-each select="//Lecture">
+						<xsl:choose>
+							<xsl:when test="Day/text()='Tuesday'">
+								<tr style="background-color:#D2BC36">
+									<td><xsl:value-of select="../Title"/></td>
+									<td><xsl:value-of select="../Professor"/></td>
+									<td><xsl:value-of select="Day"/></td>
+								</tr>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:for-each>
+					<xsl:for-each select="//Lecture">
+						<xsl:choose>
+							<xsl:when test="Day/text()='Wednesday'">
+								<tr style="background-color:#64BCAA">
+									<td><xsl:value-of select="../Title"/></td>
+									<td><xsl:value-of select="../Professor"/></td>
+									<td><xsl:value-of select="Day"/></td>
+								</tr>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:for-each>
+					<xsl:for-each select="//Lecture">
+						<xsl:choose>
+							<xsl:when test="Day/text()='Thursday'">
+								<tr style="background-color:#64BC50">
+									<td><xsl:value-of select="../Title"/></td>
+									<td><xsl:value-of select="../Professor"/></td>
+									<td><xsl:value-of select="Day"/></td>
+								</tr>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:for-each>
+					<xsl:for-each select="//Lecture">
+						<xsl:choose>
+							<xsl:when test="Day/text()='Friday'">
+								<tr style="background-color:#FE6550">
+									<td><xsl:value-of select="../Title"/></td>
+									<td><xsl:value-of select="../Professor"/></td>
+									<td><xsl:value-of select="Day"/></td>
+								</tr>
+							</xsl:when>
+						</xsl:choose>
 					</xsl:for-each>
 				</table>
 			</body>
