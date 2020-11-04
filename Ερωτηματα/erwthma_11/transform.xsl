@@ -73,24 +73,3 @@
 		
 	</xsl:template>
 </xsl:stylesheet>
-
-<!--
-<xsl:variable name="curr_day"><xsl:value-of select="Day"/></xsl:variable>
-						<xsl:sort select="$DaysOfWeek/Week/Day"/>
-						 <xsl:text>value=</xsl:text>
-						<xsl:value-of select="$curr_day"/> 
-						<tr>
-							<td><xsl:value-of select="../Title"/></td>
-							<td><xsl:value-of select="../Professor"/></td>
-							<td>
-								<xsl:choose>
-									<xsl:when test="Day/text()='Friday' or Day/text()='Thursday' or Day/text()='Wednesday' or Day/text()='Tuesday' or Day/text()='Monday'">
-										<xsl:value-of select="$DaysOfWeek/Week/Day[@id=$curr_day]/text()"/>
-									</xsl:when>
-									<xsl:otherwise>  Isws n mhn xreiazetai 
-										<xsl:value-of select="Day"/>
-									</xsl:otherwise>
-								</xsl:choose>
-							</td>
-						</tr> 
--->
