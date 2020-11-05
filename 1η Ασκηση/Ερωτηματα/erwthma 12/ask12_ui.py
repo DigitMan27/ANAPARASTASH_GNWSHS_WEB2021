@@ -78,7 +78,7 @@ class Ui_XML_Win(object):
         XML_Win.setWindowTitle(_translate("XML_Win", "Επεξεργασία XML αρχείων"))
         self.xml_input.setText(_translate("XML_Win", "XML File"))
         self.xsd_input.setText(_translate("XML_Win", "XSD File"))
-        self.Lesson.setText(_translate("XML_Win", "Lesson:"))
+        self.Lesson.setText(_translate("XML_Win", "Title:"))
         self.Professor.setText(_translate("XML_Win", "Professor:"))
         self.Day.setText(_translate("XML_Win", "Day:"))
         self.add_to_xml.setText(_translate("XML_Win", "Add"))
