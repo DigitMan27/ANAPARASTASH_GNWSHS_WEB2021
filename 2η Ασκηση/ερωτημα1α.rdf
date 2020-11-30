@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding = "UTF-8" ?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:uni="http://www.mydomain.org/uni-ns/">
+
+	<rdf:Description rdf:about="Ηλιαδα">
+		<uni:composed_from rdf:resource="ποιητη"/>
+		<uni:lived_in>8ο αιώνα</uni:lived_in>
+		<uni:at>Ιωνία της Μικράς Ασίας</uni:at>
+	</rdf:Description>
+	
+
+</rdf:RDF>
