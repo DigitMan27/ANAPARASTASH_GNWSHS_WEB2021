@@ -90,6 +90,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D1">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D1</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
@@ -109,6 +110,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D2">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D2</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
@@ -128,6 +130,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D3">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D3</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
@@ -147,6 +150,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D4">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D4</univ:dep_name>
 	<univ:dep_city>Athens</univ:dep_city>
 </rdf:Description>
 
@@ -166,6 +170,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D5">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D5</univ:dep_name>
 	<univ:dep_city>Thessaloniki</univ:dep_city>
 </rdf:Description>
 
@@ -185,6 +190,7 @@
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D6">
 	<rdf:type rdf:resource="univ:Department"/>
+	<univ:dep_name>D6</univ:dep_name>
 	<univ:dep_city>Athens</univ:dep_city>
 </rdf:Description>
 
