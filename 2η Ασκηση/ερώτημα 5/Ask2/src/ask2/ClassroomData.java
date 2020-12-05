@@ -9,42 +9,30 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import org.apache.jena.atlas.io.IndentedWriter;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 
 /**
  *
  * @author Hive
  */
-public class DepartmentData extends javax.swing.JFrame {
+public class ClassroomData extends javax.swing.JFrame {
 
     /**
-     * Creates new form DepartmentData
+     * Creates new form ClassroomData
      */
     public Model model;
-    public DefaultTableModel tableModel;
     private String uri;
     private String file;
     
-    public DepartmentData() {
+    public ClassroomData() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -61,17 +49,21 @@ public class DepartmentData extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         addToRdf = new javax.swing.JButton();
-        dep_name = new javax.swing.JTextField();
-        dep_city = new javax.swing.JTextField();
+        class_name = new javax.swing.JTextField();
+        class_cap = new javax.swing.JTextField();
+        class_dep = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Προσθήκη Τμήματος");
+        setTitle("Προσθήκη Τάξης");
         setResizable(false);
 
-        jLabel1.setText("Ονομα Τμήματος:");
+        jLabel1.setText("Ονομα Τάξης:");
 
-        jLabel2.setText("Πόλη:");
+        jLabel2.setText("Χωρητικότητα:");
+
+        jLabel3.setText("Τμήμα:");
 
         addToRdf.setText("Add");
         addToRdf.addActionListener(new java.awt.event.ActionListener() {
@@ -84,62 +76,69 @@ public class DepartmentData extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(dep_name))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(dep_city, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(addToRdf, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76))
+                    .addComponent(addToRdf, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(class_name)
+                            .addComponent(class_cap)
+                            .addComponent(class_dep, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(dep_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(class_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(dep_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(class_cap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(class_dep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(addToRdf)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void getModelTable(Model m,String uri_var,String f,DefaultTableModel tmodel){
+    public void getModel(Model m,String uri_var,String f){
         model = m;
         uri = uri_var;
         file = f;
-        tableModel = tmodel;
     }
     
     private void addToRdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToRdfActionPerformed
         // TODO add your handling code here:
-        String name = this.dep_name.getText();
-        String city = this.dep_city.getText();
+        String name = this.class_name.getText();
+        String cap = this.class_cap.getText();
+        String department_str = this.class_dep.getText();
 
-        if (!"".equals(name) && !"".equals(city)) {
-            Resource department = model.createResource(uri + name);
-            Property p1 = model.createProperty(uri, "dep_name");
-            Property p2 = model.createProperty(uri, "dep_city");
+        if (!"".equals(name) && !"".equals(cap) && !"".equals(department_str)) {
+            Resource classroom = model.createResource(uri + name);
+            Property p1 = model.createProperty(uri, "room_name");
+            Property p2 = model.createProperty(uri, "room_capacity");
+            Property p3 = model.createProperty(uri, "room_department");
 
-            department.addProperty(RDF.type, model.createResource(uri + "Department"));
-            department.addProperty(p1, name);
-            department.addProperty(p2, city);
+            classroom .addProperty(RDF.type, model.createResource(uri + "Classroom"));
+            classroom .addProperty(p1, name);
+            classroom .addProperty(p2, cap);
+            classroom .addProperty(p3, model.createResource(uri + department_str));
             
+            //RDFDataMgr.write(System.out, model, RDFFormat.RDFXML);
             FileOutputStream out = null;
             try {
                 out = new FileOutputStream(file, false);
@@ -160,19 +159,6 @@ public class DepartmentData extends javax.swing.JFrame {
              */
             JOptionPane.showMessageDialog(this, "Κάποιο απο τα πεδία δέν έχει τιμή.");
         }
-        InputStream in = FileManager.get().open(file);
-        model.read(in,"");
-        //model.write(System.out);
-        String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type univ:Department .FILTER(?x=<" + uri + name + ">)}";
-        Query query = QueryFactory.create(queryString);
-        query.serialize(new IndentedWriter(System.out,true));
-        QueryExecution qexec = QueryExecutionFactory.create(query,model);
-        ResultSet rs = qexec.execSelect();
-        rs.hasNext();
-        QuerySolution rb = rs.nextSolution();
-        RDFNode x = rb.get("x");
-        System.out.println(x.toString());
-        tableModel.addRow(new Object[]{x});  
     }//GEN-LAST:event_addToRdfActionPerformed
 
     /**
@@ -192,29 +178,31 @@ public class DepartmentData extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DepartmentData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClassroomData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DepartmentData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClassroomData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DepartmentData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClassroomData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DepartmentData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClassroomData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DepartmentData().setVisible(true);
+                new ClassroomData().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToRdf;
-    private javax.swing.JTextField dep_city;
-    private javax.swing.JTextField dep_name;
+    private javax.swing.JTextField class_cap;
+    private javax.swing.JTextField class_dep;
+    private javax.swing.JTextField class_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

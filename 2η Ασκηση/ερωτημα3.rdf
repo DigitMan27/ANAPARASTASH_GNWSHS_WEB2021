@@ -89,127 +89,127 @@
 </rdfs:Property>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D1">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D1</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C11">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C11</univ:room_name>
 	<univ:room_capacity>50</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D1"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C12">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C12</univ:room_name>
 	<univ:room_capacity>160</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D1"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D2">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D2</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C21">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C21</univ:room_name>
 	<univ:room_capacity>54</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D2"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C22">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C22</univ:room_name>
 	<univ:room_capacity>156</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D2"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D3">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D3</univ:dep_name>
 	<univ:dep_city>Patras</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C31">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C31</univ:room_name>
 	<univ:room_capacity>74</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D3"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C32">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C32</univ:room_name>
 	<univ:room_capacity>166</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D3"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D4">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D4</univ:dep_name>
 	<univ:dep_city>Athens</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C41">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C41</univ:room_name>
 	<univ:room_capacity>54</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D4"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C42">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C42</univ:room_name>
 	<univ:room_capacity>136</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D4"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D5">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D5</univ:dep_name>
 	<univ:dep_city>Thessaloniki</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C51">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C51</univ:room_name>
 	<univ:room_capacity>64</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D5"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C52">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C52</univ:room_name>
 	<univ:room_capacity>156</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D5"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/D6">
-	<rdf:type rdf:resource="univ:Department"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Department"/>
 	<univ:dep_name>D6</univ:dep_name>
 	<univ:dep_city>Athens</univ:dep_city>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C61">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C61</univ:room_name>
 	<univ:room_capacity>84</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D6"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/C62">
-	<rdf:type rdf:resource="univ:Classroom"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Classroom"/>
 	<univ:room_name>C62</univ:room_name>
 	<univ:room_capacity>126</univ:room_capacity>
 	<univ:room_department rdf:resource="http://www.mydomain.org/univ/D6"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P1">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P1</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P1@gmail.com</univ:has_email>
@@ -219,7 +219,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P2">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P2</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P2@gmail.com</univ:has_email>
@@ -229,7 +229,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P3">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P3</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P3@gmail.com</univ:has_email>
@@ -239,7 +239,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P4">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P4</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P4@gmail.com</univ:has_email>
@@ -249,7 +249,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P5">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P5</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P5@gmail.com</univ:has_email>
@@ -259,7 +259,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P6">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P6</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P6@gmail.com</univ:has_email>
@@ -269,7 +269,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P7">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P7</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P7@gmail.com</univ:has_email>
@@ -279,7 +279,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P8">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P8</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P8@gmail.com</univ:has_email>
@@ -289,7 +289,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P9">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P9</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P9@gmail.com</univ:has_email>
@@ -299,7 +299,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P10">
-	<rdf:type rdf:resource="univ:Professor"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P10</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>P10@gmail.com</univ:has_email>
@@ -359,7 +359,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S1">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S1</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S1@gmail.com</univ:has_email>
@@ -368,7 +368,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S2">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S2</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S2@gmail.com</univ:has_email>
@@ -377,7 +377,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S3">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S3</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S3@gmail.com</univ:has_email>
@@ -386,7 +386,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S4">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S4</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S4@gmail.com</univ:has_email>
@@ -395,7 +395,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S5">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S5</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S5@gmail.com</univ:has_email>
@@ -404,7 +404,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S6">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S6</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S6@gmail.com</univ:has_email>
@@ -413,7 +413,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S7">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S7</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S7@gmail.com</univ:has_email>
@@ -422,7 +422,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S8">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S8</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S8@gmail.com</univ:has_email>
@@ -431,7 +431,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S9">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S9</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S9@gmail.com</univ:has_email>
@@ -440,7 +440,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S10">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S10</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S10@gmail.com</univ:has_email>
@@ -449,7 +449,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S11">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S11</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S11@gmail.com</univ:has_email>
@@ -458,7 +458,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S12">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S12</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S12@gmail.com</univ:has_email>
@@ -467,7 +467,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S13">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S13</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S13@gmail.com</univ:has_email>
@@ -476,7 +476,7 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S14">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S14</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S14@gmail.com</univ:has_email>
@@ -485,12 +485,11 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S15">
-	<rdf:type rdf:resource="univ:Student"/>
+	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S15</univ:has_name>
 	<univ:has_phone>1234567890</univ:has_phone>
 	<univ:has_email>S15@gmail.com</univ:has_email>
 	<univ:has_age>23</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D6"/>
 </rdf:Description>
-
 </rdf:RDF>

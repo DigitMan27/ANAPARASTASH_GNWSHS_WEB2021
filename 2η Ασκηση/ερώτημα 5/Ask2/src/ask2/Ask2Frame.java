@@ -5,12 +5,13 @@
  */
 package ask2;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.vocabulary.*;
 import org.apache.jena.query.Query ;
 import org.apache.jena.query.QueryExecution ;
 import org.apache.jena.query.QueryExecutionFactory ;
@@ -20,9 +21,8 @@ import org.apache.jena.query.ResultSet ;
 import org.apache.jena.atlas.io.IndentedWriter;
 import org.apache.jena.util.FileManager;
 import java.io.*;
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -39,6 +39,8 @@ public class Ask2Frame extends javax.swing.JFrame {
     // End
     public Ask2Frame() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -57,11 +59,15 @@ public class Ask2Frame extends javax.swing.JFrame {
         open_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         path_label = new javax.swing.JLabel();
+        dataCategory = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ασκηση 2");
         setBackground(new java.awt.Color(177, 73, 73));
         setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,6 +110,16 @@ public class Ask2Frame extends javax.swing.JFrame {
 
         path_label.setText("....");
 
+        dataCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor", "Student", "Department", "Lesson", "Classroom" }));
+        dataCategory.setEnabled(false);
+        dataCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataCategoryActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Add Data:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,16 +127,23 @@ public class Ask2Frame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Exit_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(open_btn))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Exit_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(open_btn)))
+                        .addContainerGap(15, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(path_label)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(path_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dataCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,8 +151,10 @@ public class Ask2Frame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(path_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                    .addComponent(path_label)
+                    .addComponent(jLabel2)
+                    .addComponent(dataCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,9 +169,9 @@ public class Ask2Frame extends javax.swing.JFrame {
     private void Exit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit_btnActionPerformed
          this.dispose();
     }//GEN-LAST:event_Exit_btnActionPerformed
-
+    // A erwthma
     private void open_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_open_btnActionPerformed
-        FileFilter filter = new FileNameExtensionFilter("RDF file", "rdf", "rdfs");
+        FileFilter filter = new FileNameExtensionFilter("RDF file", "rdf");
         jFileChooser.addChoosableFileFilter(filter);
         jFileChooser.setFileFilter(filter);
         DefaultTableModel tableModel =(DefaultTableModel) dataTable.getModel();
@@ -159,7 +184,7 @@ public class Ask2Frame extends javax.swing.JFrame {
             model = ModelFactory.createDefaultModel();
             model.read(in,"");
             model.write(System.out);
-            String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type <univ:Department> . }";
+            String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type univ:Department . }";
             Query query = QueryFactory.create(queryString);
             query.serialize(new IndentedWriter(System.out,true));
             QueryExecution qexec = QueryExecutionFactory.create(query,model);
@@ -171,10 +196,14 @@ public class Ask2Frame extends javax.swing.JFrame {
                 tableModel.addRow(new Object[]{x});  
             }
         }
+        dataCategory.enable(true);
     }//GEN-LAST:event_open_btnActionPerformed
 
     private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
 
+        InputStream in = FileManager.get().open(file.getAbsolutePath());
+        model.read(in,"");
+        
         int row = dataTable.getSelectedRow();
         int col = 0;
         Object department = dataTable.getValueAt(row,col);
@@ -189,32 +218,38 @@ public class Ask2Frame extends javax.swing.JFrame {
                 phone=null,
                 cap=null,
                 taught_by=null;
-        DepartmentData dataWindow = new DepartmentData();
+        AllData dataWindow = new AllData();
         
         String queryString = "PREFIX univ: <http://www.mydomain.org/univ/>"+
                 "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"+
                 "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
                 "PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>"+
-                "SELECT ?name WHERE {?x rdf:type <univ:Department> ; univ:dep_name ?name . "+
+                "SELECT ?name WHERE {?x rdf:type univ:Department ; univ:dep_name ?name . "+
                 "FILTER(?x=<"+str_dep+">)"+
                 "}";
         Query query = QueryFactory.create(queryString);
         query.serialize(new IndentedWriter(System.out, true));
         QueryExecution qexec = QueryExecutionFactory.create(query, model);
         ResultSet rs = qexec.execSelect();
-        for (; rs.hasNext();){
-                QuerySolution rb = rs.nextSolution();
-                title = rb.getLiteral("name");
-                System.out.printf("Dep! " + title.toString());
+        if(rs.hasNext()){
+            for (; rs.hasNext();){
+                    QuerySolution rb = rs.nextSolution();
+                    title = rb.getLiteral("name");
+                    System.out.printf("Dep! " + title.toString());
+            }
+            qexec.close();
+            dataWindow.setTitle("Τμήμα "+title.toString());
+        }else{
+            JOptionPane.showMessageDialog(this, "Το Τμήμα που επέλεξες δέν έχει δεδομένα.");
+            return;
         }
-        qexec.close();
-        dataWindow.setTitle("Τμήμα "+title.toString());
-        
+           
+    
         String ProfQuerystr = "PREFIX univ: <http://www.mydomain.org/univ/>"
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
                 + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>"
-                + "SELECT ?name ?age ?phone WHERE { ?x rdf:type <univ:Professor> . ?x univ:has_name ?name . ?x univ:has_age ?age . ?x univ:has_phone ?phone ."
+                + "SELECT ?name ?age ?phone WHERE { ?x rdf:type univ:Professor . ?x univ:has_name ?name . ?x univ:has_age ?age . ?x univ:has_phone ?phone ."
                 + "?x univ:member_of ?dep ."
                 + "FILTER(?dep=<"+str_dep+">)}";
         Query prof_query = QueryFactory.create(ProfQuerystr);
@@ -235,7 +270,7 @@ public class Ask2Frame extends javax.swing.JFrame {
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
                 + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>"
-                + "SELECT ?name ?age ?phone WHERE { ?x rdf:type <univ:Student> . ?x univ:has_name ?name . ?x univ:has_age ?age . ?x univ:has_phone ?phone ."
+                + "SELECT ?name ?age ?phone WHERE { ?x rdf:type univ:Student . ?x univ:has_name ?name . ?x univ:has_age ?age . ?x univ:has_phone ?phone ."
                 + "?x univ:member_of ?dep ."
                 + "FILTER(?dep=<" + str_dep + ">)}";
         Query stud_query = QueryFactory.create(StudQuerystr);
@@ -256,7 +291,7 @@ public class Ask2Frame extends javax.swing.JFrame {
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
                 + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>"
-                + "SELECT ?name ?capacity WHERE { ?x rdf:type <univ:Classroom> . ?x univ:room_name ?name . ?x univ:room_capacity ?capacity ."
+                + "SELECT ?name ?capacity WHERE { ?x rdf:type univ:Classroom . ?x univ:room_name ?name . ?x univ:room_capacity ?capacity ."
                 + "?x univ:room_department ?dep ."
                 + "FILTER(?dep=<" + str_dep + ">)}";
         Query class_query = QueryFactory.create(ClassQuerystr);
@@ -276,7 +311,7 @@ public class Ask2Frame extends javax.swing.JFrame {
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
                 + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>"
-                + "SELECT ?name ?teacher WHERE { ?prof rdf:type <univ:Professor> . ?prof univ:teaches ?y . ?y univ:les_name ?name . ?prof univ:has_name ?teacher ."
+                + "SELECT ?name ?teacher WHERE { ?prof rdf:type univ:Professor . ?prof univ:teaches ?y . ?y univ:les_name ?name . ?prof univ:has_name ?teacher ."
                 + "?prof univ:member_of ?dep ."
                 + "FILTER(?dep=<" + str_dep + ">)}";
         Query lesson_query = QueryFactory.create(LessonQuerystr);
@@ -294,6 +329,36 @@ public class Ask2Frame extends javax.swing.JFrame {
         
         dataWindow.setVisible(true);
     }//GEN-LAST:event_dataTableMouseClicked
+    // B erwthma
+    private void dataCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCategoryActionPerformed
+        // TODO add your handling code here:
+        String ch = dataCategory.getSelectedItem().toString();
+        System.out.println("DataChoses:"+ch);
+        if(ch.equals("Professor")){
+            ProfessorData pd = new ProfessorData();
+            pd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            pd.setVisible(true);
+            //System.out.println("ClickedAdd");
+            //model = pd.model;
+        }else if(ch.equals("Lesson")){
+            LessonData ld = new LessonData();
+            ld.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            ld.setVisible(true);
+        }else if(ch.equals("Student")){
+            StudentData sd = new StudentData();
+            sd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            sd.setVisible(true);
+        }else if(ch.equals("Department")){
+            DepartmentData dd = new DepartmentData();
+            DefaultTableModel tableModel =(DefaultTableModel) dataTable.getModel();
+            dd.getModelTable(model,"http://www.mydomain.org/univ/",file.getAbsolutePath(),tableModel);
+            dd.setVisible(true);
+        }else if(ch.equals("Classroom")){
+            ClassroomData cd = new ClassroomData();
+            cd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            cd.setVisible(true);
+        }
+    }//GEN-LAST:event_dataCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,20 +386,25 @@ public class Ask2Frame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Ask2Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ask2Frame().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exit_btn;
+    private javax.swing.JComboBox<String> dataCategory;
     private javax.swing.JTable dataTable;
     private javax.swing.JFileChooser jFileChooser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton open_btn;
     private javax.swing.JLabel path_label;
