@@ -4,6 +4,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#>
 SELECT ?class_name
 WHERE {
+	?x rdf:type univ:Classroom.
 	?x univ:room_name ?class_name;
 	univ:room_capacity ?cap
 	filter(xsd:int(?cap)>150)

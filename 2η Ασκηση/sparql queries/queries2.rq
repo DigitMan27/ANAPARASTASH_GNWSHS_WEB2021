@@ -8,6 +8,4 @@ WHERE {
 	univ:member_of ?members_of.
 	?members_of univ:dep_city ?city
 	FILTER(?city="Patras")
-	#filter exists { ?x rdfs:subClassOf univ:Person}
-	
 }

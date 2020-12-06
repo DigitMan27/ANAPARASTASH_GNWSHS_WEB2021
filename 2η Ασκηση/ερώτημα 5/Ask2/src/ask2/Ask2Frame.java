@@ -36,6 +36,7 @@ public class Ask2Frame extends javax.swing.JFrame {
     // My Declarations
     private File file;
     private Model model;
+    private String URI;
     // End
     public Ask2Frame() {
         initComponents();
@@ -61,6 +62,9 @@ public class Ask2Frame extends javax.swing.JFrame {
         path_label = new javax.swing.JLabel();
         dataCategory = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        uri_value = new javax.swing.JTextField();
+        stmt_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ασκηση 2");
@@ -120,6 +124,16 @@ public class Ask2Frame extends javax.swing.JFrame {
 
         jLabel2.setText("Add Data:");
 
+        jLabel3.setText("URI:");
+
+        stmt_btn.setText("Show Statements");
+        stmt_btn.setEnabled(false);
+        stmt_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stmt_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,15 +146,23 @@ public class Ask2Frame extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Exit_btn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(open_btn)))
+                                .addGap(18, 18, 18)
+                                .addComponent(open_btn)
+                                .addGap(18, 18, 18)
+                                .addComponent(stmt_btn)))
                         .addContainerGap(15, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(path_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(uri_value))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(path_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dataCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48))))
@@ -154,12 +176,17 @@ public class Ask2Frame extends javax.swing.JFrame {
                     .addComponent(path_label)
                     .addComponent(jLabel2)
                     .addComponent(dataCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(uri_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Exit_btn)
-                    .addComponent(open_btn))
+                    .addComponent(open_btn)
+                    .addComponent(stmt_btn))
                 .addGap(19, 19, 19))
         );
 
@@ -183,7 +210,7 @@ public class Ask2Frame extends javax.swing.JFrame {
             InputStream in = FileManager.get().open(path);
             model = ModelFactory.createDefaultModel();
             model.read(in,"");
-            model.write(System.out);
+           // model.write(System.out);
             String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type univ:Department . }";
             Query query = QueryFactory.create(queryString);
             query.serialize(new IndentedWriter(System.out,true));
@@ -195,8 +222,10 @@ public class Ask2Frame extends javax.swing.JFrame {
                 System.out.println(x.toString());
                 tableModel.addRow(new Object[]{x});  
             }
+            URI = "http://www.mydomain.org/univ/";
         }
-        dataCategory.enable(true);
+        dataCategory.setEnabled(true);
+        stmt_btn.setEnabled(true);
     }//GEN-LAST:event_open_btnActionPerformed
 
     private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
@@ -336,29 +365,53 @@ public class Ask2Frame extends javax.swing.JFrame {
         System.out.println("DataChoses:"+ch);
         if(ch.equals("Professor")){
             ProfessorData pd = new ProfessorData();
-            pd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            pd.getModel(model,URI,file.getAbsolutePath());
             pd.setVisible(true);
             //System.out.println("ClickedAdd");
             //model = pd.model;
         }else if(ch.equals("Lesson")){
             LessonData ld = new LessonData();
-            ld.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            ld.getModel(model,URI,file.getAbsolutePath());
             ld.setVisible(true);
         }else if(ch.equals("Student")){
             StudentData sd = new StudentData();
-            sd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            sd.getModel(model,URI,file.getAbsolutePath());
             sd.setVisible(true);
         }else if(ch.equals("Department")){
             DepartmentData dd = new DepartmentData();
             DefaultTableModel tableModel =(DefaultTableModel) dataTable.getModel();
-            dd.getModelTable(model,"http://www.mydomain.org/univ/",file.getAbsolutePath(),tableModel);
+            dd.getModelTable(model,URI,file.getAbsolutePath(),tableModel);
             dd.setVisible(true);
         }else if(ch.equals("Classroom")){
             ClassroomData cd = new ClassroomData();
-            cd.getModel(model,"http://www.mydomain.org/univ/",file.getAbsolutePath());
+            cd.getModel(model,URI,file.getAbsolutePath());
             cd.setVisible(true);
         }
     }//GEN-LAST:event_dataCategoryActionPerformed
+
+    private void stmt_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stmt_btnActionPerformed
+        // TODO add your handling code here:
+        String text = uri_value.getText();
+        Boolean contains = text.contains(URI);
+        if(text.equals("") || !contains ){
+            JOptionPane.showMessageDialog(this, "Λάθος URI.");
+        }else{
+            StatementData stmts = new StatementData();
+            InfModel inf_model = ModelFactory.createRDFSModel(model);
+            Resource infr = inf_model.getResource(text);
+            StmtIterator iter  = infr.listProperties();
+            while(iter.hasNext()){
+                Statement stmt = iter.nextStatement();
+                System.out.print(" " + stmt.getSubject().toString());
+                System.out.print(" " + stmt.getPredicate().toString());
+                System.out.print(" " + stmt.getObject().toString());
+                System.out.print("\n");
+                stmts.addToTable(stmt.getSubject().toString(), stmt.getPredicate().toString(), stmt.getObject().toString());
+            }
+            
+            stmts.setVisible(true);
+        }
+    }//GEN-LAST:event_stmt_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,8 +458,11 @@ public class Ask2Frame extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton open_btn;
     private javax.swing.JLabel path_label;
+    private javax.swing.JButton stmt_btn;
+    private javax.swing.JTextField uri_value;
     // End of variables declaration//GEN-END:variables
 }
