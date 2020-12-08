@@ -21,6 +21,7 @@ import org.apache.jena.query.ResultSet ;
 import org.apache.jena.atlas.io.IndentedWriter;
 import org.apache.jena.util.FileManager;
 import java.io.*;
+import java.nio.charset.Charset;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -208,8 +209,9 @@ public class Ask2Frame extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             path_label.setText(file.getName());
             InputStream in = FileManager.get().open(path);
+            InputStreamReader rin = new InputStreamReader(in,Charset.forName("UTF-8").newDecoder());
             model = ModelFactory.createDefaultModel();
-            model.read(in,"");
+            model.read(rin,"");
            // model.write(System.out);
             String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type univ:Department . }";
             Query query = QueryFactory.create(queryString);
@@ -231,7 +233,8 @@ public class Ask2Frame extends javax.swing.JFrame {
     private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
 
         InputStream in = FileManager.get().open(file.getAbsolutePath());
-        model.read(in,"");
+        InputStreamReader rin = new InputStreamReader(in,Charset.forName("UTF-8").newDecoder());
+        model.read(rin,"");
         
         int row = dataTable.getSelectedRow();
         int col = 0;
@@ -360,15 +363,13 @@ public class Ask2Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_dataTableMouseClicked
     // B erwthma
     private void dataCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCategoryActionPerformed
-        // TODO add your handling code here:
+        
         String ch = dataCategory.getSelectedItem().toString();
         System.out.println("DataChoses:"+ch);
         if(ch.equals("Professor")){
             ProfessorData pd = new ProfessorData();
             pd.getModel(model,URI,file.getAbsolutePath());
             pd.setVisible(true);
-            //System.out.println("ClickedAdd");
-            //model = pd.model;
         }else if(ch.equals("Lesson")){
             LessonData ld = new LessonData();
             ld.getModel(model,URI,file.getAbsolutePath());
@@ -390,7 +391,7 @@ public class Ask2Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_dataCategoryActionPerformed
 
     private void stmt_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stmt_btnActionPerformed
-        // TODO add your handling code here:
+        
         String text = uri_value.getText();
         Boolean contains = text.contains(URI);
         if(text.equals("") || !contains ){

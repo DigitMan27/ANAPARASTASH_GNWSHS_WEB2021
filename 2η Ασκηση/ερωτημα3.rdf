@@ -211,7 +211,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P1">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P1</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6973639768</univ:has_phone>
 	<univ:has_email>P1@gmail.com</univ:has_email>
 	<univ:has_age>40</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L1"/>
@@ -221,7 +221,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P2">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P2</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6953609764</univ:has_phone>
 	<univ:has_email>P2@gmail.com</univ:has_email>
 	<univ:has_age>41</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L2"/>
@@ -231,7 +231,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P3">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P3</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6993639508</univ:has_phone>
 	<univ:has_email>P3@gmail.com</univ:has_email>
 	<univ:has_age>42</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L3"/>
@@ -241,7 +241,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P4">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P4</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6393290768</univ:has_phone>
 	<univ:has_email>P4@gmail.com</univ:has_email>
 	<univ:has_age>40</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L4"/>
@@ -251,7 +251,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P5">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P5</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6977679728</univ:has_phone>
 	<univ:has_email>P5@gmail.com</univ:has_email>
 	<univ:has_age>40</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L5"/>
@@ -261,7 +261,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P6">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P6</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6173030368</univ:has_phone>
 	<univ:has_email>P6@gmail.com</univ:has_email>
 	<univ:has_age>40</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L6"/>
@@ -271,7 +271,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P7">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P7</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6473332798</univ:has_phone>
 	<univ:has_email>P7@gmail.com</univ:has_email>
 	<univ:has_age>45</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L7"/>
@@ -281,7 +281,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P8">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P8</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6983231758</univ:has_phone>
 	<univ:has_email>P8@gmail.com</univ:has_email>
 	<univ:has_age>44</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L8"/>
@@ -291,7 +291,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P9">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P9</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6553630762</univ:has_phone>
 	<univ:has_email>P9@gmail.com</univ:has_email>
 	<univ:has_age>38</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L9"/>
@@ -301,7 +301,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/P10">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Professor"/>
 	<univ:has_name>P10</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6803039464</univ:has_phone>
 	<univ:has_email>P10@gmail.com</univ:has_email>
 	<univ:has_age>38</univ:has_age>
 	<univ:teaches rdf:resource="http://www.mydomain.org/univ/L10"/>
@@ -361,7 +361,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S1">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S1</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6800039364</univ:has_phone>
 	<univ:has_email>S1@gmail.com</univ:has_email>
 	<univ:has_age>24</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D1"/>
@@ -370,7 +370,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S2">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S2</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6833039564</univ:has_phone>
 	<univ:has_email>S2@gmail.com</univ:has_email>
 	<univ:has_age>20</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D1"/>
@@ -379,7 +379,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S3">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S3</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6103059484</univ:has_phone>
 	<univ:has_email>S3@gmail.com</univ:has_email>
 	<univ:has_age>22</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D2"/>
@@ -388,7 +388,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S4">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S4</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6203037404</univ:has_phone>
 	<univ:has_email>S4@gmail.com</univ:has_email>
 	<univ:has_age>19</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D3"/>
@@ -397,7 +397,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S5">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S5</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6803439474</univ:has_phone>
 	<univ:has_email>S5@gmail.com</univ:has_email>
 	<univ:has_age>23</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D3"/>
@@ -406,7 +406,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S6">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S6</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6103009464</univ:has_phone>
 	<univ:has_email>S6@gmail.com</univ:has_email>
 	<univ:has_age>20</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D4"/>
@@ -415,7 +415,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S7">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S7</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6003039864</univ:has_phone>
 	<univ:has_email>S7@gmail.com</univ:has_email>
 	<univ:has_age>19</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D4"/>
@@ -424,7 +424,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S8">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S8</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6890303947</univ:has_phone>
 	<univ:has_email>S8@gmail.com</univ:has_email>
 	<univ:has_age>22</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D4"/>
@@ -433,7 +433,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S9">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S9</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6403039064</univ:has_phone>
 	<univ:has_email>S9@gmail.com</univ:has_email>
 	<univ:has_age>25</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D5"/>
@@ -442,7 +442,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S10">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S10</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6403039404</univ:has_phone>
 	<univ:has_email>S10@gmail.com</univ:has_email>
 	<univ:has_age>21</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D5"/>
@@ -451,7 +451,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S11">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S11</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6803009404</univ:has_phone>
 	<univ:has_email>S11@gmail.com</univ:has_email>
 	<univ:has_age>20</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D5"/>
@@ -460,7 +460,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S12">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S12</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6203030404</univ:has_phone>
 	<univ:has_email>S12@gmail.com</univ:has_email>
 	<univ:has_age>20</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D5"/>
@@ -469,7 +469,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S13">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S13</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6003049484</univ:has_phone>
 	<univ:has_email>S13@gmail.com</univ:has_email>
 	<univ:has_age>19</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D6"/>
@@ -478,7 +478,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S14">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S14</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6993029461</univ:has_phone>
 	<univ:has_email>S14@gmail.com</univ:has_email>
 	<univ:has_age>23</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D6"/>
@@ -487,7 +487,7 @@
 <rdf:Description rdf:about="http://www.mydomain.org/univ/S15">
 	<rdf:type rdf:resource="http://www.mydomain.org/univ/Student"/>
 	<univ:has_name>S15</univ:has_name>
-	<univ:has_phone>1234567890</univ:has_phone>
+	<univ:has_phone>6909039964</univ:has_phone>
 	<univ:has_email>S15@gmail.com</univ:has_email>
 	<univ:has_age>23</univ:has_age>
 	<univ:member_of rdf:resource="http://www.mydomain.org/univ/D6"/>

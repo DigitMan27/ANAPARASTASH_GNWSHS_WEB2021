@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -140,25 +142,17 @@ public class LessonData extends javax.swing.JFrame {
            lesson.addProperty(p1,name);
            lesson.addProperty(p2,teacher);
            
-           //RDFDataMgr.write(System.out, model, RDFFormat.RDFXML);
            FileOutputStream out = null;
+           OutputStreamWriter sw = null;
            try {
                 out = new FileOutputStream(file,false);
+                sw = new OutputStreamWriter(out,Charset.forName("UTF-8").newEncoder());
            } catch (FileNotFoundException ex) {
                 Logger.getLogger(ProfessorData.class.getName()).log(Level.SEVERE, null, ex);
            }
-           RDFDataMgr.write(out, model, Lang.RDFXML);
-           //model.write(out,"RDF/XML-ABBREV");
-           //professor.add(p5,RDF.)
+           RDFDataMgr.write(sw, model, Lang.RDFXML);
        
         }else{
-            /*
-            System.out.println("name is: " + name);
-            System.out.println("age is: " + age);
-            System.out.println("email is: " + email);
-            System.out.println("phone is: " + phone);
-            System.out.println("lesson is: " + uri + lesson_str);
-            */
             JOptionPane.showMessageDialog(this,"Κάποιο απο τα πεδία δέν έχει τιμή."); 
         }
     }//GEN-LAST:event_addToRdfActionPerformed

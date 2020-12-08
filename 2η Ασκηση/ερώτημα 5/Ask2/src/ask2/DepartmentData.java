@@ -10,6 +10,9 @@ import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -127,7 +130,7 @@ public class DepartmentData extends javax.swing.JFrame {
     }
     
     private void addToRdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToRdfActionPerformed
-        // TODO add your handling code here:
+        
         String name = this.dep_name.getText();
         String city = this.dep_city.getText();
 
@@ -141,28 +144,22 @@ public class DepartmentData extends javax.swing.JFrame {
             department.addProperty(p2, city);
             
             FileOutputStream out = null;
+            OutputStreamWriter sw = null;
             try {
-                out = new FileOutputStream(file, false);
+                out = new FileOutputStream(file,false);
+                sw = new OutputStreamWriter(out,Charset.forName("UTF-8").newEncoder());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ProfessorData.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RDFDataMgr.write(out, model, Lang.RDFXML);
-            //model.write(out,"RDF/XML-ABBREV");
-            //professor.add(p5,RDF.)
+            RDFDataMgr.write(sw, model, Lang.RDFXML);
 
         } else {
-            /*
-            System.out.println("name is: " + name);
-            System.out.println("age is: " + age);
-            System.out.println("email is: " + email);
-            System.out.println("phone is: " + phone);
-            System.out.println("lesson is: " + uri + lesson_str);
-             */
             JOptionPane.showMessageDialog(this, "Κάποιο απο τα πεδία δέν έχει τιμή.");
         }
         InputStream in = FileManager.get().open(file);
-        model.read(in,"");
-        //model.write(System.out);
+        InputStreamReader rin = new InputStreamReader(in,Charset.forName("UTF-8").newDecoder());
+        model.read(rin,"");
+        
         String queryString = "PREFIX univ: <http://www.mydomain.org/univ/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/22-rdf-schema#> SELECT ?x {?x rdf:type univ:Department .FILTER(?x=<" + uri + name + ">)}";
         Query query = QueryFactory.create(queryString);
         query.serialize(new IndentedWriter(System.out,true));
