@@ -146,7 +146,7 @@ public class ClassroomData extends javax.swing.JFrame {
                 out = new FileOutputStream(file,false);
                 sw = new OutputStreamWriter(out,Charset.forName("UTF-8").newEncoder());
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(ProfessorData.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ClassroomData.class.getName()).log(Level.SEVERE, null, ex);
             }
             RDFDataMgr.write(sw, model, Lang.RDFXML);
 
