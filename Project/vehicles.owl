@@ -1,0 +1,2580 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.mydomain.com/vehicles/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.mydomain.com/vehicles/">
+    <Prefix name="" IRI="http://www.mydomain.com/vehicles/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="Car"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CarTransport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Company"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MotorSport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MotorTransport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Motorcycle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Owner"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Trunks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UsedVehicles"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="buggy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="bus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="business"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="capacity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dirt"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dirtRacingBike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="dirtRacingCar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="farmVehicle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="foodTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="formula"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="fragile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="fragileOnlyTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="furnitureTruck"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="large"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="largeTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="limousine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="normal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="normalOnlyTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="oilTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="racingBike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="racingCar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="road"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="roadRacingBike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="roadRacingCar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="scooter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="small"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="smallTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="sport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="tractor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="transportTrunk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="tricycle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="van"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="equivalentModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="fasterThan"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasOwner"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasSamePower"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="manfacturedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="moreEcoThan"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="owns"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="sold"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="soldBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Country"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="CountryName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="ModelAge"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="ModelName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Owner"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Price"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Sex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="email"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="fuelType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="numOfSeats"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="porductForTransport"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="France"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Germany"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Italy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="UK"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="USA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="buggy1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="bus1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="bus2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="company1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="company2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="dirtBike1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="farm1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="farm2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="formulaM1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="formulaM2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="largeTrunk1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="limo1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="limo2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="oilTrunk1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="person1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="person2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="person3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="scooter1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="tractor1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="tricycle1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="usedVehicle1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="van1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="van2"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="UsedVehicles"/>
+        <Class IRI="Vehicle"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="buggy"/>
+        <ObjectIntersectionOf>
+            <Class IRI="MotorTransport"/>
+            <Class IRI="dirt"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="dirtRacingBike"/>
+        <ObjectIntersectionOf>
+            <Class IRI="dirt"/>
+            <Class IRI="racingBike"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="dirtRacingCar"/>
+        <ObjectIntersectionOf>
+            <Class IRI="dirt"/>
+            <Class IRI="racingCar"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="farmVehicle"/>
+        <ObjectIntersectionOf>
+            <Class IRI="CarTransport"/>
+            <Class IRI="dirt"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="fragileOnlyTrunk"/>
+        <ObjectIntersectionOf>
+            <Class IRI="fragile"/>
+            <ObjectUnionOf>
+                <Class IRI="largeTrunk"/>
+                <Class IRI="smallTrunk"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="largeTrunk"/>
+        <ObjectIntersectionOf>
+            <Class IRI="transportTrunk"/>
+            <ObjectComplementOf>
+                <Class IRI="small"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="limousine"/>
+        <ObjectIntersectionOf>
+            <Class IRI="CarTransport"/>
+            <Class IRI="business"/>
+            <Class IRI="road"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="normalOnlyTrunk"/>
+        <ObjectIntersectionOf>
+            <Class IRI="normal"/>
+            <ObjectUnionOf>
+                <Class IRI="largeTrunk"/>
+                <Class IRI="smallTrunk"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="racingBike"/>
+        <ObjectIntersectionOf>
+            <Class IRI="MotorSport"/>
+            <Class IRI="Motorcycle"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="racingCar"/>
+        <ObjectIntersectionOf>
+            <Class IRI="Car"/>
+            <Class IRI="sport"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="roadRacingBike"/>
+        <ObjectIntersectionOf>
+            <Class IRI="racingBike"/>
+            <Class IRI="road"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="roadRacingCar"/>
+        <ObjectIntersectionOf>
+            <Class IRI="racingCar"/>
+            <Class IRI="road"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="scooter"/>
+        <ObjectIntersectionOf>
+            <Class IRI="MotorTransport"/>
+            <Class IRI="road"/>
+            <DataAllValuesFrom>
+                <DataProperty IRI="fuelType"/>
+                <DataOneOf>
+                    <Literal>Electrism</Literal>
+                </DataOneOf>
+            </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="smallTrunk"/>
+        <ObjectIntersectionOf>
+            <Class IRI="transportTrunk"/>
+            <ObjectComplementOf>
+                <Class IRI="large"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="tractor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="dirt"/>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="numOfSeats"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="Car"/>
+        <Class IRI="Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CarTransport"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Company"/>
+        <Class IRI="Owner"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MotorSport"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MotorTransport"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Motorcycle"/>
+        <Class IRI="Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Person"/>
+        <Class IRI="Owner"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Trunks"/>
+        <Class IRI="Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="UsedVehicles"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="soldBy"/>
+            <Class IRI="Person"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Vehicle"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="manfacturedBy"/>
+            <Class IRI="Country"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="buggy"/>
+        <Class IRI="MotorTransport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="bus"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="bus"/>
+        <Class IRI="CarTransport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="bus"/>
+        <Class IRI="business"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="bus"/>
+        <DataMinCardinality cardinality="10">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="business"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="capacity"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="dirtRacingBike"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="dirtRacingCar"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="farmVehicle"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="foodTrunk"/>
+        <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="foodTrunk"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="porductForTransport"/>
+            <DataOneOf>
+                <Literal>Food</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="formula"/>
+        <Class IRI="racingCar"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="formula"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="fragile"/>
+        <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="fragileOnlyTrunk"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="furnitureTruck"/>
+        <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="furnitureTruck"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="porductForTransport"/>
+            <DataOneOf>
+                <Literal>Furniture</Literal>
+            </DataOneOf>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="large"/>
+        <Class IRI="capacity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="largeTrunk"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="limousine"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="normal"/>
+        <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="normalOnlyTrunk"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="oilTrunk"/>
+        <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="oilTrunk"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="porductForTransport"/>
+            <DataOneOf>
+                <Literal>Oil</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="racingBike"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="racingCar"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="roadRacingBike"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="roadRacingCar"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="scooter"/>
+        <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="small"/>
+        <Class IRI="capacity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="smallTrunk"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="sport"/>
+        <Class IRI="Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="tractor"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="transportTrunk"/>
+        <Class IRI="Trunks"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="tricycle"/>
+        <Class IRI="MotorTransport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="tricycle"/>
+        <DataExactCardinality cardinality="3">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="van"/>
+        <Class IRI="CarTransport"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="van"/>
+        <DataMaxCardinality cardinality="10">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="dirtRacingBike"/>
+        <Class IRI="roadRacingBike"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="dirtRacingCar"/>
+        <Class IRI="roadRacingCar"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="farmVehicle"/>
+        <Class IRI="racingCar"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="largeTrunk"/>
+        <Class IRI="smallTrunk"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="limousine"/>
+        <Class IRI="racingCar"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="Country"/>
+        <NamedIndividual IRI="France"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Country"/>
+        <NamedIndividual IRI="Germany"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Country"/>
+        <NamedIndividual IRI="Italy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Country"/>
+        <NamedIndividual IRI="UK"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Country"/>
+        <NamedIndividual IRI="USA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorTransport"/>
+        <NamedIndividual IRI="buggy1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="buggy"/>
+        <NamedIndividual IRI="buggy1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="buggy1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="bus1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="bus1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="bus"/>
+        <NamedIndividual IRI="bus1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="business"/>
+        <NamedIndividual IRI="bus1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="bus2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="bus2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="bus"/>
+        <NamedIndividual IRI="bus2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="business"/>
+        <NamedIndividual IRI="bus2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Company"/>
+        <NamedIndividual IRI="company1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Owner"/>
+        <NamedIndividual IRI="company1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Company"/>
+        <NamedIndividual IRI="company2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Owner"/>
+        <NamedIndividual IRI="company2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorSport"/>
+        <NamedIndividual IRI="dirtBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="dirtBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="UsedVehicles"/>
+        <NamedIndividual IRI="dirtBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirtRacingBike"/>
+        <NamedIndividual IRI="dirtBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingBike"/>
+        <NamedIndividual IRI="dirtBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirtRacingCar"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirtRacingCar"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirtRacingCar"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="farm1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="farm1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="farm1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="farmVehicle"/>
+        <NamedIndividual IRI="farm1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="farm2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="farm2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="farm2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="farmVehicle"/>
+        <NamedIndividual IRI="farm2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="formulaM1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="formula"/>
+        <NamedIndividual IRI="formulaM1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="formulaM1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="formulaM1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="formulaM2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="formula"/>
+        <NamedIndividual IRI="formulaM2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="formulaM2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="formulaM2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Trunks"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="fragile"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="fragileOnlyTrunk"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="smallTrunk"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="transportTrunk"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Trunks"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="foodTrunk"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="largeTrunk"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="transportTrunk"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="limo1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="limo1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="business"/>
+        <NamedIndividual IRI="limo1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="limousine"/>
+        <NamedIndividual IRI="limo1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="limo1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="limo2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="limo2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="business"/>
+        <NamedIndividual IRI="limo2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="limousine"/>
+        <NamedIndividual IRI="limo2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="limo2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Trunks"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="furnitureTruck"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="largeTrunk"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="normal"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="normalOnlyTrunk"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="transportTrunk"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Trunks"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="largeTrunk"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="oilTrunk"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="transportTrunk"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Owner"/>
+        <NamedIndividual IRI="person1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Person"/>
+        <NamedIndividual IRI="person1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Owner"/>
+        <NamedIndividual IRI="person2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Person"/>
+        <NamedIndividual IRI="person2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Owner"/>
+        <NamedIndividual IRI="person3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Person"/>
+        <NamedIndividual IRI="person3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorSport"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingBike"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="roadRacingBike"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="roadRacingCar"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="racingCar"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="roadRacingCar"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorTransport"/>
+        <NamedIndividual IRI="scooter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="scooter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="scooter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="scooter"/>
+        <NamedIndividual IRI="scooter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Trunks"/>
+        <NamedIndividual IRI="tractor1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="dirt"/>
+        <NamedIndividual IRI="tractor1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="tractor"/>
+        <NamedIndividual IRI="tractor1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorTransport"/>
+        <NamedIndividual IRI="tricycle1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="tricycle1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="tricycle"/>
+        <NamedIndividual IRI="tricycle1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="UsedVehicles"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="van1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="van1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="van"/>
+        <NamedIndividual IRI="van1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="van2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="van2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="van"/>
+        <NamedIndividual IRI="van2"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="France"/>
+        <NamedIndividual IRI="Germany"/>
+        <NamedIndividual IRI="Italy"/>
+        <NamedIndividual IRI="UK"/>
+        <NamedIndividual IRI="USA"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="bus1"/>
+        <NamedIndividual IRI="bus2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="company1"/>
+        <NamedIndividual IRI="company2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="dirtBike1"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="farm1"/>
+        <NamedIndividual IRI="farm2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="formulaM1"/>
+        <NamedIndividual IRI="formulaM2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="limo1"/>
+        <NamedIndividual IRI="limo2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="person1"/>
+        <NamedIndividual IRI="person2"/>
+        <NamedIndividual IRI="person3"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="van1"/>
+        <NamedIndividual IRI="van2"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="buggy1"/>
+        <NamedIndividual IRI="person1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="buggy1"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <NamedIndividual IRI="buggy1"/>
+        <NamedIndividual IRI="farm1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="bus1"/>
+        <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="bus1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <NamedIndividual IRI="bus1"/>
+        <NamedIndividual IRI="bus2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="bus2"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="bus2"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="soldBy"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <NamedIndividual IRI="person1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <NamedIndividual IRI="person1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="fasterThan"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="fasterThan"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="farm1"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="farm1"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <NamedIndividual IRI="farm1"/>
+        <NamedIndividual IRI="farm2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="equivalentModel"/>
+        <NamedIndividual IRI="farm2"/>
+        <NamedIndividual IRI="farm1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="farm2"/>
+        <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="farm2"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="equivalentModel"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <NamedIndividual IRI="formulaM1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="limo1"/>
+        <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="limo1"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="equivalentModel"/>
+        <NamedIndividual IRI="limo2"/>
+        <NamedIndividual IRI="limo1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="limo2"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="limo2"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="scooter1"/>
+        <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="scooter1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="tractor1"/>
+        <NamedIndividual IRI="person1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="tractor1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <NamedIndividual IRI="buggy1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="soldBy"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="van1"/>
+        <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="van2"/>
+        <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasSamePower"/>
+        <NamedIndividual IRI="van2"/>
+        <NamedIndividual IRI="van1"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="CountryName"/>
+        <NamedIndividual IRI="France"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">France</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="CountryName"/>
+        <NamedIndividual IRI="Germany"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Germany</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="CountryName"/>
+        <NamedIndividual IRI="Italy"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Italy</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="CountryName"/>
+        <NamedIndividual IRI="UK"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">UK</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="CountryName"/>
+        <NamedIndividual IRI="USA"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">USA</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2009</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">BUG212</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">2000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">BYR212</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">15000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">100</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2003</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">BYH231</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">14000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">200</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Name"/>
+        <NamedIndividual IRI="company1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">AutoMobile</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="email"/>
+        <NamedIndividual IRI="company1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">automob@gmail.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Name"/>
+        <NamedIndividual IRI="company2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">FastMobile</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="email"/>
+        <NamedIndividual IRI="company2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">fastmob@gmail.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2007</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Bke231</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">3000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2008</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">RC1231</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">120000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2009</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">RC5000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">130000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">RC7880</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">150000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2004</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">DRT90</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">2000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2004</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">DRT221</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">3000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">F12010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1.05E7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2011</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">F12011</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1056001.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2009</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TRU212</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">20000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="porductForTransport"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal>Cars</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2001</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">PTRU201</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">231311.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="porductForTransport"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal>Food</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2006</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">LIMO2124</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">20000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2007</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">LIMO3441</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">25000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TRU2010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">25000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="porductForTransport"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal>Furniture</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TRU900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">40000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="porductForTransport"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Age"/>
+        <NamedIndividual IRI="person1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">33</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Name"/>
+        <NamedIndividual IRI="person1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Dimis Diatros</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Sex"/>
+        <NamedIndividual IRI="person1"/>
+        <Literal>Male</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="email"/>
+        <NamedIndividual IRI="person1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">dimis@gmail.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Age"/>
+        <NamedIndividual IRI="person2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">34</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Name"/>
+        <NamedIndividual IRI="person2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Panagioths Papadopoulos</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Sex"/>
+        <NamedIndividual IRI="person2"/>
+        <Literal>Male</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="email"/>
+        <NamedIndividual IRI="person2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">panagiwths@gmail.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Age"/>
+        <NamedIndividual IRI="person3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">45</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Name"/>
+        <NamedIndividual IRI="person3"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Anastasia Zafiri</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Sex"/>
+        <NamedIndividual IRI="person3"/>
+        <Literal>Female</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="email"/>
+        <NamedIndividual IRI="person3"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">anastasia@gmail.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2009</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Bke3421</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">4000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2012</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">RRC435</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">20000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">ERC2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">100000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal>Electrism</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">SC900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1500.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal>Electrism</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2008</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TR5000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">10000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2017</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TRI800</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal>Electrism</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1999</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">XMY123</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">1200.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2005</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">VRE123</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">4000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2007</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">ERRW3221</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">5000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">7</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="hasOwner"/>
+        <ObjectProperty IRI="owns"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="sold"/>
+        <ObjectProperty IRI="soldBy"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="manfacturedBy"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="owns"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="soldBy"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="equivalentModel"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="hasSamePower"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="fasterThan"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="moreEcoThan"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="equivalentModel"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="fasterThan"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasOwner"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasSamePower"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="owns"/>
+        <Class IRI="Owner"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="sold"/>
+        <Class IRI="Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="soldBy"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="equivalentModel"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="fasterThan"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasOwner"/>
+        <Class IRI="Owner"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasSamePower"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="manfacturedBy"/>
+        <Class IRI="Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="moreEcoThan"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="owns"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="sold"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="soldBy"/>
+        <Class IRI="Person"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="Age"/>
+        <DataProperty IRI="Owner"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="CountryName"/>
+        <DataProperty IRI="Country"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="ModelAge"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="ModelName"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="Name"/>
+        <DataProperty IRI="Owner"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="Price"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="Sex"/>
+        <DataProperty IRI="Owner"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="email"/>
+        <DataProperty IRI="Owner"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="fuelType"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="numOfSeats"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="Age"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="CountryName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="ModelAge"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="ModelName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="Name"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="Price"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="Sex"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="porductForTransport"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="Age"/>
+        <Class IRI="Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="CountryName"/>
+        <Class IRI="Country"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="ModelAge"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="ModelName"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="Name"/>
+        <Class IRI="Owner"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="Price"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="Sex"/>
+        <Class IRI="Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="email"/>
+        <Class IRI="Owner"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="fuelType"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="numOfSeats"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="porductForTransport"/>
+        <Class IRI="Trunks"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="Age"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="CountryName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="ModelAge"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="ModelName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="Name"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="Price"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="Sex"/>
+        <DataOneOf>
+            <Literal>Female</Literal>
+            <Literal>Male</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="email"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="fuelType"/>
+        <DataOneOf>
+            <Literal>Electrism</Literal>
+            <Literal>Oil</Literal>
+            <Literal>Petrol</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="numOfSeats"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="porductForTransport"/>
+        <DataOneOf>
+            <Literal>Cars</Literal>
+            <Literal>Food</Literal>
+            <Literal>Furniture</Literal>
+            <Literal>Oil</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
