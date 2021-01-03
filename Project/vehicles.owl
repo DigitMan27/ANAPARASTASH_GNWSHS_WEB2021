@@ -151,13 +151,16 @@
         <ObjectProperty IRI="fasterThan"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="hasManufactured"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="hasOwner"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="hasSamePower"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="manfacturedBy"/>
+        <ObjectProperty IRI="manufacturedBy"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="moreEcoThan"/>
@@ -214,6 +217,9 @@
         <DataProperty IRI="porductForTransport"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="Electricity"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="France"/>
     </Declaration>
     <Declaration>
@@ -221,6 +227,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="Italy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Oil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Petrol"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="UK"/>
@@ -323,7 +335,13 @@
     </Declaration>
     <EquivalentClasses>
         <Class IRI="UsedVehicles"/>
-        <Class IRI="Vehicle"/>
+        <ObjectIntersectionOf>
+            <Class IRI="Vehicle"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="soldBy"/>
+                <Class IRI="Person"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="buggy"/>
@@ -354,6 +372,13 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="foodTrunk"/>
+        <DataHasValue>
+            <DataProperty IRI="porductForTransport"/>
+            <Literal>Food</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="fragileOnlyTrunk"/>
         <ObjectIntersectionOf>
             <Class IRI="fragile"/>
@@ -364,12 +389,17 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="furnitureTruck"/>
+        <DataHasValue>
+            <DataProperty IRI="porductForTransport"/>
+            <Literal>Furniture</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="largeTrunk"/>
         <ObjectIntersectionOf>
+            <Class IRI="large"/>
             <Class IRI="transportTrunk"/>
-            <ObjectComplementOf>
-                <Class IRI="small"/>
-            </ObjectComplementOf>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -385,10 +415,17 @@
         <ObjectIntersectionOf>
             <Class IRI="normal"/>
             <ObjectUnionOf>
-                <Class IRI="largeTrunk"/>
-                <Class IRI="smallTrunk"/>
+                <Class IRI="large"/>
+                <Class IRI="small"/>
             </ObjectUnionOf>
         </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="oilTrunk"/>
+        <DataHasValue>
+            <DataProperty IRI="porductForTransport"/>
+            <Literal>Oil</Literal>
+        </DataHasValue>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="racingBike"/>
@@ -423,31 +460,36 @@
         <ObjectIntersectionOf>
             <Class IRI="MotorTransport"/>
             <Class IRI="road"/>
-            <DataAllValuesFrom>
+            <DataHasValue>
                 <DataProperty IRI="fuelType"/>
-                <DataOneOf>
-                    <Literal>Electrism</Literal>
-                </DataOneOf>
-            </DataAllValuesFrom>
+                <Literal>Electrism</Literal>
+            </DataHasValue>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="smallTrunk"/>
         <ObjectIntersectionOf>
+            <Class IRI="small"/>
             <Class IRI="transportTrunk"/>
-            <ObjectComplementOf>
-                <Class IRI="large"/>
-            </ObjectComplementOf>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="tractor"/>
         <ObjectIntersectionOf>
+            <Class IRI="Trunks"/>
             <Class IRI="dirt"/>
             <DataExactCardinality cardinality="1">
                 <DataProperty IRI="numOfSeats"/>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
             </DataExactCardinality>
         </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="tricycle"/>
+        <DataExactCardinality cardinality="3">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataExactCardinality>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Car"/>
@@ -460,6 +502,13 @@
     <SubClassOf>
         <Class IRI="Company"/>
         <Class IRI="Owner"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Company"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="owns"/>
+            <Class IRI="Vehicle"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="MotorSport"/>
@@ -478,6 +527,13 @@
         <Class IRI="Owner"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Person"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="owns"/>
+            <Class IRI="Vehicle"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Trunks"/>
         <Class IRI="Vehicle"/>
     </SubClassOf>
@@ -490,10 +546,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Vehicle"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="manfacturedBy"/>
-            <Class IRI="Country"/>
-        </ObjectSomeValuesFrom>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="hasOwner"/>
+            <Class IRI="Owner"/>
+        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="buggy"/>
@@ -543,15 +599,6 @@
         <Class IRI="transportTrunk"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="foodTrunk"/>
-        <DataAllValuesFrom>
-            <DataProperty IRI="porductForTransport"/>
-            <DataOneOf>
-                <Literal>Food</Literal>
-            </DataOneOf>
-        </DataAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="formula"/>
         <Class IRI="racingCar"/>
     </SubClassOf>
@@ -573,15 +620,6 @@
     <SubClassOf>
         <Class IRI="furnitureTruck"/>
         <Class IRI="transportTrunk"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="furnitureTruck"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="porductForTransport"/>
-            <DataOneOf>
-                <Literal>Furniture</Literal>
-            </DataOneOf>
-        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="large"/>
@@ -608,15 +646,6 @@
         <Class IRI="transportTrunk"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="oilTrunk"/>
-        <DataAllValuesFrom>
-            <DataProperty IRI="porductForTransport"/>
-            <DataOneOf>
-                <Literal>Oil</Literal>
-            </DataOneOf>
-        </DataAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="racingBike"/>
         <Class IRI="Motorcycle"/>
     </SubClassOf>
@@ -635,6 +664,15 @@
     <SubClassOf>
         <Class IRI="scooter"/>
         <Class IRI="Motorcycle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="scooter"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="fuelType"/>
+            <DataOneOf>
+                <Literal>Electrism</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="small"/>
@@ -661,13 +699,6 @@
         <Class IRI="MotorTransport"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="tricycle"/>
-        <DataExactCardinality cardinality="3">
-            <DataProperty IRI="numOfSeats"/>
-            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-        </DataExactCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="van"/>
         <Class IRI="CarTransport"/>
     </SubClassOf>
@@ -678,6 +709,14 @@
             <Datatype abbreviatedIRI="xsd:positiveInteger"/>
         </DataMaxCardinality>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="Car"/>
+        <Class IRI="Trunks"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Motorcycle"/>
+        <Class IRI="Trunks"/>
+    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="dirtRacingBike"/>
         <Class IRI="roadRacingBike"/>
@@ -720,10 +759,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="MotorTransport"/>
-        <NamedIndividual IRI="buggy1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="buggy"/>
         <NamedIndividual IRI="buggy1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -787,11 +822,7 @@
         <NamedIndividual IRI="dirtBike1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="UsedVehicles"/>
-        <NamedIndividual IRI="dirtBike1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="dirtRacingBike"/>
+        <Class IRI="dirt"/>
         <NamedIndividual IRI="dirtBike1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -807,10 +838,6 @@
         <NamedIndividual IRI="dirtRacingCar1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="dirtRacingCar"/>
-        <NamedIndividual IRI="dirtRacingCar1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="racingCar"/>
         <NamedIndividual IRI="dirtRacingCar1"/>
     </ClassAssertion>
@@ -823,10 +850,6 @@
         <NamedIndividual IRI="dirtRacingCar2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="dirtRacingCar"/>
-        <NamedIndividual IRI="dirtRacingCar2"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="racingCar"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
     </ClassAssertion>
@@ -836,10 +859,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="dirt"/>
-        <NamedIndividual IRI="dirtRacingCar3"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="dirtRacingCar"/>
         <NamedIndividual IRI="dirtRacingCar3"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -859,10 +878,6 @@
         <NamedIndividual IRI="farm1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="farmVehicle"/>
-        <NamedIndividual IRI="farm1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="Car"/>
         <NamedIndividual IRI="farm2"/>
     </ClassAssertion>
@@ -872,10 +887,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="dirt"/>
-        <NamedIndividual IRI="farm2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="farmVehicle"/>
         <NamedIndividual IRI="farm2"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -919,11 +930,7 @@
         <NamedIndividual IRI="fragileTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="fragileOnlyTrunk"/>
-        <NamedIndividual IRI="fragileTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="smallTrunk"/>
+        <Class IRI="large"/>
         <NamedIndividual IRI="fragileTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -935,11 +942,7 @@
         <NamedIndividual IRI="largeTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="foodTrunk"/>
-        <NamedIndividual IRI="largeTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="largeTrunk"/>
+        <Class IRI="large"/>
         <NamedIndividual IRI="largeTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -959,10 +962,6 @@
         <NamedIndividual IRI="limo1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="limousine"/>
-        <NamedIndividual IRI="limo1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="road"/>
         <NamedIndividual IRI="limo1"/>
     </ClassAssertion>
@@ -979,23 +978,11 @@
         <NamedIndividual IRI="limo2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="limousine"/>
-        <NamedIndividual IRI="limo2"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="road"/>
         <NamedIndividual IRI="limo2"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="Trunks"/>
-        <NamedIndividual IRI="normalTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="furnitureTruck"/>
-        <NamedIndividual IRI="normalTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="largeTrunk"/>
         <NamedIndividual IRI="normalTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1003,7 +990,7 @@
         <NamedIndividual IRI="normalTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="normalOnlyTrunk"/>
+        <Class IRI="small"/>
         <NamedIndividual IRI="normalTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1015,11 +1002,7 @@
         <NamedIndividual IRI="oilTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="largeTrunk"/>
-        <NamedIndividual IRI="oilTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="oilTrunk"/>
+        <Class IRI="large"/>
         <NamedIndividual IRI="oilTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1067,10 +1050,6 @@
         <NamedIndividual IRI="roadRacingBike1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="roadRacingBike"/>
-        <NamedIndividual IRI="roadRacingBike1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="Car"/>
         <NamedIndividual IRI="roadRacingCar1"/>
     </ClassAssertion>
@@ -1083,10 +1062,6 @@
         <NamedIndividual IRI="roadRacingCar1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="roadRacingCar"/>
-        <NamedIndividual IRI="roadRacingCar1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="Car"/>
         <NamedIndividual IRI="roadRacingCar2"/>
     </ClassAssertion>
@@ -1096,10 +1071,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="road"/>
-        <NamedIndividual IRI="roadRacingCar2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="roadRacingCar"/>
         <NamedIndividual IRI="roadRacingCar2"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1107,15 +1078,7 @@
         <NamedIndividual IRI="scooter1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="Motorcycle"/>
-        <NamedIndividual IRI="scooter1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="road"/>
-        <NamedIndividual IRI="scooter1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="scooter"/>
         <NamedIndividual IRI="scooter1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1139,15 +1102,7 @@
         <NamedIndividual IRI="tricycle1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="tricycle"/>
-        <NamedIndividual IRI="tricycle1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="Car"/>
-        <NamedIndividual IRI="usedVehicle1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="UsedVehicles"/>
         <NamedIndividual IRI="usedVehicle1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1229,11 +1184,6 @@
         <NamedIndividual IRI="person1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="buggy1"/>
-        <NamedIndividual IRI="USA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
         <NamedIndividual IRI="buggy1"/>
         <NamedIndividual IRI="farm1"/>
@@ -1244,11 +1194,6 @@
         <NamedIndividual IRI="company1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="bus1"/>
-        <NamedIndividual IRI="Germany"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
         <NamedIndividual IRI="bus1"/>
         <NamedIndividual IRI="bus2"/>
@@ -1257,16 +1202,6 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="bus2"/>
         <NamedIndividual IRI="company2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="bus2"/>
-        <NamedIndividual IRI="Italy"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="dirtBike1"/>
-        <NamedIndividual IRI="France"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="soldBy"/>
@@ -1279,11 +1214,6 @@
         <NamedIndividual IRI="person1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="dirtRacingCar1"/>
-        <NamedIndividual IRI="USA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="fasterThan"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
         <NamedIndividual IRI="dirtRacingCar1"/>
@@ -1292,11 +1222,6 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
         <NamedIndividual IRI="person2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="dirtRacingCar2"/>
-        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="fasterThan"/>
@@ -1309,19 +1234,9 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="dirtRacingCar3"/>
-        <NamedIndividual IRI="Germany"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="farm1"/>
         <NamedIndividual IRI="person2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="farm1"/>
-        <NamedIndividual IRI="UK"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
@@ -1339,19 +1254,9 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="farm2"/>
-        <NamedIndividual IRI="Germany"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="formulaM1"/>
         <NamedIndividual IRI="company1"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="formulaM1"/>
-        <NamedIndividual IRI="USA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="equivalentModel"/>
@@ -1364,19 +1269,9 @@
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="formulaM2"/>
-        <NamedIndividual IRI="UK"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="fragileTrunk1"/>
         <NamedIndividual IRI="company1"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="fragileTrunk1"/>
-        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1384,19 +1279,9 @@
         <NamedIndividual IRI="person2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="largeTrunk1"/>
-        <NamedIndividual IRI="USA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="limo1"/>
         <NamedIndividual IRI="company1"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="limo1"/>
-        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="equivalentModel"/>
@@ -1409,29 +1294,14 @@
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="limo2"/>
-        <NamedIndividual IRI="USA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="normalTrunk1"/>
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="normalTrunk1"/>
-        <NamedIndividual IRI="France"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="oilTrunk1"/>
         <NamedIndividual IRI="company2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="oilTrunk1"/>
-        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1439,29 +1309,14 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="roadRacingBike1"/>
-        <NamedIndividual IRI="UK"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="roadRacingCar1"/>
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="roadRacingCar1"/>
-        <NamedIndividual IRI="Italy"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="roadRacingCar2"/>
         <NamedIndividual IRI="company1"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="roadRacingCar2"/>
-        <NamedIndividual IRI="France"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
@@ -1472,11 +1327,6 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="scooter1"/>
         <NamedIndividual IRI="person3"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="scooter1"/>
-        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1484,29 +1334,14 @@
         <NamedIndividual IRI="person1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="tractor1"/>
-        <NamedIndividual IRI="France"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="tricycle1"/>
         <NamedIndividual IRI="person2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="tricycle1"/>
-        <NamedIndividual IRI="France"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
         <NamedIndividual IRI="tricycle1"/>
         <NamedIndividual IRI="buggy1"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="manfacturedBy"/>
-        <NamedIndividual IRI="usedVehicle1"/>
-        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="soldBy"/>
@@ -1601,7 +1436,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="bus1"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">100</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
@@ -2181,17 +2016,17 @@
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
         <NamedIndividual IRI="tractor1"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2008</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2015</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelName"/>
         <NamedIndividual IRI="tractor1"/>
-        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TR5000</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">TRC2355</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="Price"/>
         <NamedIndividual IRI="tractor1"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">10000.0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">5000.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="fuelType"/>
@@ -2304,6 +2139,10 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">7</Literal>
     </DataPropertyAssertion>
     <InverseObjectProperties>
+        <ObjectProperty IRI="hasManufactured"/>
+        <ObjectProperty IRI="manufacturedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="hasOwner"/>
         <ObjectProperty IRI="owns"/>
     </InverseObjectProperties>
@@ -2312,7 +2151,7 @@
         <ObjectProperty IRI="soldBy"/>
     </InverseObjectProperties>
     <FunctionalObjectProperty>
-        <ObjectProperty IRI="manfacturedBy"/>
+        <ObjectProperty IRI="manufacturedBy"/>
     </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="owns"/>
@@ -2341,6 +2180,10 @@
         <Class IRI="Vehicle"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasManufactured"/>
+        <Class IRI="Country"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="hasOwner"/>
         <Class IRI="Vehicle"/>
     </ObjectPropertyDomain>
@@ -2349,7 +2192,7 @@
         <Class IRI="Vehicle"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="manfacturedBy"/>
+        <ObjectProperty IRI="manufacturedBy"/>
         <Class IRI="Vehicle"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -2377,6 +2220,10 @@
         <Class IRI="Vehicle"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="hasManufactured"/>
+        <Class IRI="Vehicle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="hasOwner"/>
         <Class IRI="Owner"/>
     </ObjectPropertyRange>
@@ -2385,7 +2232,7 @@
         <Class IRI="Vehicle"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="manfacturedBy"/>
+        <ObjectProperty IRI="manufacturedBy"/>
         <Class IRI="Country"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
