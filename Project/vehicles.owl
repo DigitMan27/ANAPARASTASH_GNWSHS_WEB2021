@@ -43,7 +43,7 @@
         <Class IRI="Trunks"/>
     </Declaration>
     <Declaration>
-        <Class IRI="UsedVehicles"/>
+        <Class IRI="UsedVehicle"/>
     </Declaration>
     <Declaration>
         <Class IRI="Vehicle"/>
@@ -334,7 +334,7 @@
         <NamedIndividual IRI="van2"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="UsedVehicles"/>
+        <Class IRI="UsedVehicle"/>
         <ObjectIntersectionOf>
             <Class IRI="Vehicle"/>
             <ObjectSomeValuesFrom>
@@ -538,7 +538,7 @@
         <Class IRI="Vehicle"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="UsedVehicles"/>
+        <Class IRI="UsedVehicle"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="soldBy"/>
             <Class IRI="Person"/>
@@ -730,6 +730,10 @@
         <Class IRI="racingCar"/>
     </DisjointClasses>
     <DisjointClasses>
+        <Class IRI="fragileOnlyTrunk"/>
+        <Class IRI="normalOnlyTrunk"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="largeTrunk"/>
         <Class IRI="smallTrunk"/>
     </DisjointClasses>
@@ -1184,6 +1188,11 @@
         <NamedIndividual IRI="person1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="buggy1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
         <NamedIndividual IRI="buggy1"/>
         <NamedIndividual IRI="farm1"/>
@@ -1194,6 +1203,11 @@
         <NamedIndividual IRI="company1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="bus1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
         <NamedIndividual IRI="bus1"/>
         <NamedIndividual IRI="bus2"/>
@@ -1202,6 +1216,16 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="bus2"/>
         <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="bus2"/>
+        <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="soldBy"/>
@@ -1214,6 +1238,11 @@
         <NamedIndividual IRI="person1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="fasterThan"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
         <NamedIndividual IRI="dirtRacingCar1"/>
@@ -1222,6 +1251,11 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
         <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="fasterThan"/>
@@ -1234,9 +1268,19 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="farm1"/>
         <NamedIndividual IRI="person2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="farm1"/>
+        <NamedIndividual IRI="France"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
@@ -1254,9 +1298,19 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="farm2"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="formulaM1"/>
         <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="equivalentModel"/>
@@ -1267,6 +1321,11 @@
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="formulaM2"/>
         <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1274,14 +1333,29 @@
         <NamedIndividual IRI="company1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="largeTrunk1"/>
         <NamedIndividual IRI="person2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="limo1"/>
         <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="limo1"/>
+        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="equivalentModel"/>
@@ -1294,9 +1368,19 @@
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="limo2"/>
+        <NamedIndividual IRI="Germany"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="normalTrunk1"/>
         <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1304,9 +1388,19 @@
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="roadRacingBike1"/>
         <NamedIndividual IRI="person3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <NamedIndividual IRI="France"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1314,9 +1408,19 @@
         <NamedIndividual IRI="company2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <NamedIndividual IRI="UK"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="roadRacingCar2"/>
         <NamedIndividual IRI="company1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <NamedIndividual IRI="USA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="moreEcoThan"/>
@@ -1329,9 +1433,19 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="scooter1"/>
+        <NamedIndividual IRI="USA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="tractor1"/>
         <NamedIndividual IRI="person1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="tractor1"/>
+        <NamedIndividual IRI="Italy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -1354,6 +1468,11 @@
         <NamedIndividual IRI="person3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="van1"/>
+        <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
         <NamedIndividual IRI="van2"/>
         <NamedIndividual IRI="person2"/>
@@ -1362,6 +1481,11 @@
         <ObjectProperty IRI="hasSamePower"/>
         <NamedIndividual IRI="van2"/>
         <NamedIndividual IRI="van1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="van2"/>
+        <NamedIndividual IRI="UK"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="CountryName"/>
