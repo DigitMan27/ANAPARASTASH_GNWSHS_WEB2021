@@ -211,13 +211,13 @@
         <DataProperty IRI="fuelType"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="horsePower"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="numOfSeats"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="porductForTransport"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="Electricity"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="France"/>
@@ -227,12 +227,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="Italy"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="Oil"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="Petrol"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="UK"/>
@@ -248,6 +242,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="bus2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="bus3"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="company1"/>
@@ -332,6 +329,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="van2"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="UsedVehicle"/>
@@ -546,10 +546,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Vehicle"/>
-        <ObjectExactCardinality cardinality="1">
+        <ObjectMaxCardinality cardinality="1">
             <ObjectProperty IRI="hasOwner"/>
             <Class IRI="Owner"/>
-        </ObjectExactCardinality>
+        </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="buggy"/>
@@ -802,6 +802,10 @@
         <NamedIndividual IRI="bus2"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="Car"/>
+        <NamedIndividual IRI="bus3"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="Company"/>
         <NamedIndividual IRI="company1"/>
     </ClassAssertion>
@@ -1082,6 +1086,10 @@
         <NamedIndividual IRI="scooter1"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="scooter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="road"/>
         <NamedIndividual IRI="scooter1"/>
     </ClassAssertion>
@@ -1143,6 +1151,7 @@
     <DifferentIndividuals>
         <NamedIndividual IRI="bus1"/>
         <NamedIndividual IRI="bus2"/>
+        <NamedIndividual IRI="bus3"/>
     </DifferentIndividuals>
     <DifferentIndividuals>
         <NamedIndividual IRI="company1"/>
@@ -1221,6 +1230,16 @@
         <ObjectProperty IRI="manufacturedBy"/>
         <NamedIndividual IRI="bus2"/>
         <NamedIndividual IRI="Italy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="hasOwner"/>
+        <NamedIndividual IRI="bus3"/>
+        <NamedIndividual IRI="company2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="manufacturedBy"/>
+        <NamedIndividual IRI="bus3"/>
+        <NamedIndividual IRI="Germany"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="manufacturedBy"/>
@@ -1533,6 +1552,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="buggy1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">15.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="buggy1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -1558,9 +1582,14 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="bus1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">500.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="bus1"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">100</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
@@ -1583,9 +1612,44 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="bus2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">500.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="bus2"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">200</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2002</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">BUS4501</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">10560.33</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">60.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="bus3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">100</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="Name"/>
@@ -1628,6 +1692,11 @@
         <Literal>Petrol</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="dirtBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">10.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="dirtBike1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -1651,6 +1720,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="dirtRacingCar1"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="dirtRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">760.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -1678,6 +1752,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="dirtRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">800.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="dirtRacingCar2"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -1701,6 +1780,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="dirtRacingCar3"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="dirtRacingCar3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">620.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -1728,6 +1812,11 @@
         <Literal>Petrol</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="farm1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">20.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="farm1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -1751,6 +1840,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="farm2"/>
         <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="farm2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">30.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -1778,6 +1872,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="formulaM1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">960.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="formulaM1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
@@ -1803,6 +1902,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="formulaM2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">970.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="formulaM2"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
@@ -1826,6 +1930,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="fragileTrunk1"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="fragileTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">200.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -1858,6 +1967,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="largeTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">70.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="largeTrunk1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -1888,6 +2002,11 @@
         <Literal>Petrol</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="limo1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">50.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="limo1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">5</Literal>
@@ -1913,6 +2032,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="limo2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">56.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="limo2"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
@@ -1936,6 +2060,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="normalTrunk1"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="normalTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">40.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -1966,6 +2095,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="oilTrunk1"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="oilTrunk1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">66.8</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -2058,6 +2192,11 @@
         <Literal>Petrol</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="roadRacingBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">200.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="roadRacingBike1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -2083,6 +2222,11 @@
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="roadRacingCar1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">570.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="roadRacingCar1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
@@ -2100,12 +2244,17 @@
     <DataPropertyAssertion>
         <DataProperty IRI="Price"/>
         <NamedIndividual IRI="roadRacingCar2"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">100000.0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">20000.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="roadRacingCar2"/>
         <Literal>Electrism</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="roadRacingCar2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">700.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -2133,6 +2282,11 @@
         <Literal>Electrism</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="scooter1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">7.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="scooter1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
@@ -2156,6 +2310,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="tractor1"/>
         <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="tractor1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">55.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -2183,6 +2342,11 @@
         <Literal>Electrism</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="tricycle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">13.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="tricycle1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
@@ -2206,6 +2370,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="usedVehicle1"/>
         <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="usedVehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">10.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -2233,6 +2402,11 @@
         <Literal>Petrol</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="van1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">23.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="van1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
@@ -2256,6 +2430,11 @@
         <DataProperty IRI="fuelType"/>
         <NamedIndividual IRI="van2"/>
         <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="van2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">30.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
@@ -2412,6 +2591,10 @@
         <DataProperty IRI="Vehicle"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="horsePower"/>
+        <DataProperty IRI="Vehicle"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="numOfSeats"/>
         <DataProperty IRI="Vehicle"/>
     </SubDataPropertyOf>
@@ -2439,6 +2622,9 @@
     </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="Sex"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="horsePower"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="porductForTransport"/>
@@ -2477,6 +2663,10 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="fuelType"/>
+        <Class IRI="Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="horsePower"/>
         <Class IRI="Vehicle"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -2531,6 +2721,10 @@
         </DataOneOf>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="horsePower"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="numOfSeats"/>
         <Datatype abbreviatedIRI="xsd:positiveInteger"/>
     </DataPropertyRange>
@@ -2543,6 +2737,225 @@
             <Literal>Oil</Literal>
         </DataOneOf>
     </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S4</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="numOfSeats"/>
+                <Variable IRI="v"/>
+                <Variable IRI="seats"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="seats"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="bus"/>
+                <Variable IRI="v"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S1</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v2"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="Price"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="p1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="Price"/>
+                <Variable IRI="v2"/>
+                <Variable IRI="p2"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="p1"/>
+                <Variable IRI="p2"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="equivalentModel"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="v2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S5</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v2"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="fuelType"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="f1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="fuelType"/>
+                <Variable IRI="v2"/>
+                <Variable IRI="f2"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="f1"/>
+                <Literal>Electrism</Literal>
+            </BuiltInAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="f2"/>
+                <Literal>Petrol</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="moreEcoThan"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="v2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S3</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v2"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="horsePower"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="p1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="horsePower"/>
+                <Variable IRI="v2"/>
+                <Variable IRI="p2"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="p1"/>
+                <Variable IRI="p2"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="hasSamePower"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="v2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S2</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v1"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="Vehicle"/>
+                <Variable IRI="v2"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="horsePower"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="p1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="horsePower"/>
+                <Variable IRI="v2"/>
+                <Variable IRI="p2"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="p1"/>
+                <Variable IRI="p2"/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="fasterThan"/>
+                <Variable IRI="v1"/>
+                <Variable IRI="v2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
 </Ontology>
 
 
