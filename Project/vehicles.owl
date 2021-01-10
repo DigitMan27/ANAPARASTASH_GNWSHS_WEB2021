@@ -304,6 +304,12 @@
         <NamedIndividual IRI="person3"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="person4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="roadBike1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="roadRacingBike1"/>
     </Declaration>
     <Declaration>
@@ -329,6 +335,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="van2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="vehicle1"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
@@ -1042,6 +1051,22 @@
         <NamedIndividual IRI="person3"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="Person"/>
+        <NamedIndividual IRI="person4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="MotorTransport"/>
+        <NamedIndividual IRI="roadBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Motorcycle"/>
+        <NamedIndividual IRI="roadBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="road"/>
+        <NamedIndividual IRI="roadBike1"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="MotorSport"/>
         <NamedIndividual IRI="roadRacingBike1"/>
     </ClassAssertion>
@@ -1141,6 +1166,10 @@
         <Class IRI="van"/>
         <NamedIndividual IRI="van2"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="CarTransport"/>
+        <NamedIndividual IRI="vehicle1"/>
+    </ClassAssertion>
     <DifferentIndividuals>
         <NamedIndividual IRI="France"/>
         <NamedIndividual IRI="Germany"/>
@@ -1159,6 +1188,7 @@
     </DifferentIndividuals>
     <DifferentIndividuals>
         <NamedIndividual IRI="dirtBike1"/>
+        <NamedIndividual IRI="roadBike1"/>
         <NamedIndividual IRI="usedVehicle1"/>
     </DifferentIndividuals>
     <DifferentIndividuals>
@@ -1177,11 +1207,6 @@
     <DifferentIndividuals>
         <NamedIndividual IRI="limo1"/>
         <NamedIndividual IRI="limo2"/>
-    </DifferentIndividuals>
-    <DifferentIndividuals>
-        <NamedIndividual IRI="person1"/>
-        <NamedIndividual IRI="person2"/>
-        <NamedIndividual IRI="person3"/>
     </DifferentIndividuals>
     <DifferentIndividuals>
         <NamedIndividual IRI="roadRacingCar1"/>
@@ -1410,6 +1435,16 @@
         <ObjectProperty IRI="manufacturedBy"/>
         <NamedIndividual IRI="oilTrunk1"/>
         <NamedIndividual IRI="France"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="sold"/>
+        <NamedIndividual IRI="person1"/>
+        <NamedIndividual IRI="roadBike1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="sold"/>
+        <NamedIndividual IRI="person4"/>
+        <NamedIndividual IRI="roadBike1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="hasOwner"/>
@@ -2173,6 +2208,36 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2003</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">ΡΒΕ900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">400.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal>Petrol</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">12.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="roadBike1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
         <NamedIndividual IRI="roadRacingBike1"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2009</Literal>
     </DataPropertyAssertion>
@@ -2441,6 +2506,36 @@
         <NamedIndividual IRI="van2"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">7</Literal>
     </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelAge"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="ModelName"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">VHI603</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="Price"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">7000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="fuelType"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal>Oil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="horsePower"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">13.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="numOfSeats"/>
+        <NamedIndividual IRI="vehicle1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">4</Literal>
+    </DataPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="hasManufactured"/>
         <ObjectProperty IRI="manufacturedBy"/>
@@ -2454,13 +2549,19 @@
         <ObjectProperty IRI="soldBy"/>
     </InverseObjectProperties>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="hasOwner"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="manufacturedBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="soldBy"/>
     </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="owns"/>
     </InverseFunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="soldBy"/>
+        <ObjectProperty IRI="sold"/>
     </InverseFunctionalObjectProperty>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="equivalentModel"/>
@@ -2753,22 +2854,22 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v"/>
+                <Variable IRI="urn:swrl:var#v"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="numOfSeats"/>
-                <Variable IRI="v"/>
-                <Variable IRI="seats"/>
+                <Variable IRI="urn:swrl:var#v"/>
+                <Variable IRI="urn:swrl:var#seats"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
-                <Variable IRI="seats"/>
+                <Variable IRI="urn:swrl:var#seats"/>
                 <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
             </BuiltInAtom>
         </Body>
         <Head>
             <ClassAtom>
                 <Class IRI="bus"/>
-                <Variable IRI="v"/>
+                <Variable IRI="urn:swrl:var#v"/>
             </ClassAtom>
         </Head>
     </DLSafeRule>
@@ -2788,32 +2889,32 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
             </ClassAtom>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="Price"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="p1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#p1"/>
             </DataPropertyAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="Price"/>
-                <Variable IRI="v2"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
-                <Variable IRI="p1"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#p1"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </BuiltInAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="equivalentModel"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -2833,36 +2934,36 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
             </ClassAtom>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="fuelType"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="f1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#f1"/>
             </DataPropertyAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="fuelType"/>
-                <Variable IRI="v2"/>
-                <Variable IRI="f2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
+                <Variable IRI="urn:swrl:var#f2"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
-                <Variable IRI="f1"/>
+                <Variable IRI="urn:swrl:var#f1"/>
                 <Literal>Electrism</Literal>
             </BuiltInAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
-                <Variable IRI="f2"/>
+                <Variable IRI="urn:swrl:var#f2"/>
                 <Literal>Petrol</Literal>
             </BuiltInAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="moreEcoThan"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -2882,32 +2983,32 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
             </ClassAtom>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="horsePower"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="p1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#p1"/>
             </DataPropertyAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="horsePower"/>
-                <Variable IRI="v2"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
-                <Variable IRI="p1"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#p1"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </BuiltInAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="hasSamePower"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -2927,32 +3028,32 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
             </ClassAtom>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="horsePower"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="p1"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#p1"/>
             </DataPropertyAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="horsePower"/>
-                <Variable IRI="v2"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#v2"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
-                <Variable IRI="p1"/>
-                <Variable IRI="p2"/>
+                <Variable IRI="urn:swrl:var#p1"/>
+                <Variable IRI="urn:swrl:var#p2"/>
             </BuiltInAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="fasterThan"/>
-                <Variable IRI="v1"/>
-                <Variable IRI="v2"/>
+                <Variable IRI="urn:swrl:var#v1"/>
+                <Variable IRI="urn:swrl:var#v2"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
