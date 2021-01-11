@@ -217,7 +217,7 @@
         <DataProperty IRI="numOfSeats"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="France"/>
@@ -360,6 +360,18 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="bus"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="numOfSeats"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="dirtRacingBike"/>
         <ObjectIntersectionOf>
             <Class IRI="dirt"/>
@@ -383,9 +395,30 @@
     <EquivalentClasses>
         <Class IRI="foodTrunk"/>
         <DataHasValue>
-            <DataProperty IRI="porductForTransport"/>
+            <DataProperty IRI="productForTransport"/>
             <Literal>Food</Literal>
         </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="formula"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class IRI="racingCar"/>
+                <Class IRI="sport"/>
+            </ObjectUnionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="numOfSeats"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="fragileOnlyTrunk"/>
@@ -400,7 +433,7 @@
     <EquivalentClasses>
         <Class IRI="furnitureTruck"/>
         <DataHasValue>
-            <DataProperty IRI="porductForTransport"/>
+            <DataProperty IRI="productForTransport"/>
             <Literal>Furniture</Literal>
         </DataHasValue>
     </EquivalentClasses>
@@ -432,7 +465,7 @@
     <EquivalentClasses>
         <Class IRI="oilTrunk"/>
         <DataHasValue>
-            <DataProperty IRI="porductForTransport"/>
+            <DataProperty IRI="productForTransport"/>
             <Literal>Oil</Literal>
         </DataHasValue>
     </EquivalentClasses>
@@ -487,18 +520,49 @@
         <ObjectIntersectionOf>
             <Class IRI="Trunks"/>
             <Class IRI="dirt"/>
-            <DataExactCardinality cardinality="1">
+            <DataSomeValuesFrom>
                 <DataProperty IRI="numOfSeats"/>
-                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-            </DataExactCardinality>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="tricycle"/>
-        <DataExactCardinality cardinality="3">
+        <DataSomeValuesFrom>
             <DataProperty IRI="numOfSeats"/>
-            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-        </DataExactCardinality>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="van"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="numOfSeats"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Car"/>
@@ -577,13 +641,6 @@
         <Class IRI="business"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="bus"/>
-        <DataMinCardinality cardinality="10">
-            <DataProperty IRI="numOfSeats"/>
-            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-        </DataMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="business"/>
         <Class IRI="Car"/>
     </SubClassOf>
@@ -608,15 +665,24 @@
         <Class IRI="transportTrunk"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="foodTrunk"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="productForTransport"/>
+            <DataOneOf>
+                <Literal>Food</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="formula"/>
         <Class IRI="racingCar"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="formula"/>
-        <DataExactCardinality cardinality="1">
+        <DataMaxCardinality cardinality="1">
             <DataProperty IRI="numOfSeats"/>
             <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-        </DataExactCardinality>
+        </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="fragile"/>
@@ -629,6 +695,15 @@
     <SubClassOf>
         <Class IRI="furnitureTruck"/>
         <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="furnitureTruck"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="productForTransport"/>
+            <DataOneOf>
+                <Literal>Furniture</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="large"/>
@@ -653,6 +728,15 @@
     <SubClassOf>
         <Class IRI="oilTrunk"/>
         <Class IRI="transportTrunk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="oilTrunk"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="productForTransport"/>
+            <DataOneOf>
+                <Literal>Oil</Literal>
+            </DataOneOf>
+        </DataAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="racingBike"/>
@@ -708,12 +792,19 @@
         <Class IRI="MotorTransport"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="tricycle"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="numOfSeats"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="van"/>
         <Class IRI="CarTransport"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="van"/>
-        <DataMaxCardinality cardinality="10">
+        <DataMaxCardinality cardinality="1">
             <DataProperty IRI="numOfSeats"/>
             <Datatype abbreviatedIRI="xsd:positiveInteger"/>
         </DataMaxCardinality>
@@ -787,10 +878,6 @@
         <NamedIndividual IRI="bus1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="bus"/>
-        <NamedIndividual IRI="bus1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="business"/>
         <NamedIndividual IRI="bus1"/>
     </ClassAssertion>
@@ -800,10 +887,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="CarTransport"/>
-        <NamedIndividual IRI="bus2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="bus"/>
         <NamedIndividual IRI="bus2"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -940,10 +1023,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="Trunks"/>
-        <NamedIndividual IRI="fragileTrunk1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="fragile"/>
         <NamedIndividual IRI="fragileTrunk1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1127,10 +1206,6 @@
         <NamedIndividual IRI="tractor1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="tractor"/>
-        <NamedIndividual IRI="tractor1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="MotorTransport"/>
         <NamedIndividual IRI="tricycle1"/>
     </ClassAssertion>
@@ -1151,19 +1226,11 @@
         <NamedIndividual IRI="van1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="van"/>
-        <NamedIndividual IRI="van1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="Car"/>
         <NamedIndividual IRI="van2"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="CarTransport"/>
-        <NamedIndividual IRI="van2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="van"/>
         <NamedIndividual IRI="van2"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -1884,7 +1951,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="farm2"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">4</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
@@ -1977,7 +2044,7 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <NamedIndividual IRI="fragileTrunk1"/>
         <Literal>Cars</Literal>
     </DataPropertyAssertion>
@@ -2012,7 +2079,7 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <NamedIndividual IRI="largeTrunk1"/>
         <Literal>Food</Literal>
     </DataPropertyAssertion>
@@ -2107,7 +2174,7 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <NamedIndividual IRI="normalTrunk1"/>
         <Literal>Furniture</Literal>
     </DataPropertyAssertion>
@@ -2142,7 +2209,7 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <NamedIndividual IRI="oilTrunk1"/>
         <Literal>Oil</Literal>
     </DataPropertyAssertion>
@@ -2474,7 +2541,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="numOfSeats"/>
         <NamedIndividual IRI="van1"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">7</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="ModelAge"/>
@@ -2700,7 +2767,7 @@
         <DataProperty IRI="Vehicle"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <DataProperty IRI="Vehicle"/>
     </SubDataPropertyOf>
     <FunctionalDataProperty>
@@ -2728,7 +2795,7 @@
         <DataProperty IRI="horsePower"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
     </FunctionalDataProperty>
     <DataPropertyDomain>
         <DataProperty IRI="Age"/>
@@ -2775,7 +2842,7 @@
         <Class IRI="Vehicle"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <Class IRI="Trunks"/>
     </DataPropertyDomain>
     <DataPropertyRange>
@@ -2830,7 +2897,7 @@
         <Datatype abbreviatedIRI="xsd:positiveInteger"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="porductForTransport"/>
+        <DataProperty IRI="productForTransport"/>
         <DataOneOf>
             <Literal>Cars</Literal>
             <Literal>Food</Literal>
@@ -2849,27 +2916,27 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S4</Literal>
+            <Literal>S5</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="urn:swrl:var#v"/>
+                <Variable IRI="v"/>
             </ClassAtom>
             <DataPropertyAtom>
-                <DataProperty IRI="numOfSeats"/>
-                <Variable IRI="urn:swrl:var#v"/>
-                <Variable IRI="urn:swrl:var#seats"/>
+                <DataProperty IRI="productForTransport"/>
+                <Variable IRI="v"/>
+                <Variable IRI="p"/>
             </DataPropertyAtom>
-            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
-                <Variable IRI="urn:swrl:var#seats"/>
-                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="p"/>
+                <Literal>Cars</Literal>
             </BuiltInAtom>
         </Body>
         <Head>
             <ClassAtom>
-                <Class IRI="bus"/>
-                <Variable IRI="urn:swrl:var#v"/>
+                <Class IRI="fragileOnlyTrunk"/>
+                <Variable IRI="v"/>
             </ClassAtom>
         </Head>
     </DLSafeRule>
@@ -2929,7 +2996,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S5</Literal>
+            <Literal>S4</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
