@@ -364,9 +364,12 @@
         <DataSomeValuesFrom>
             <DataProperty IRI="numOfSeats"/>
             <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1000</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
@@ -409,12 +412,12 @@
             <DataSomeValuesFrom>
                 <DataProperty IRI="numOfSeats"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <Datatype abbreviatedIRI="xsd:integer"/>
                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
                     </FacetRestriction>
                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataSomeValuesFrom>
@@ -523,12 +526,12 @@
             <DataSomeValuesFrom>
                 <DataProperty IRI="numOfSeats"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <Datatype abbreviatedIRI="xsd:integer"/>
                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
                     </FacetRestriction>
                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataSomeValuesFrom>
@@ -539,12 +542,12 @@
         <DataSomeValuesFrom>
             <DataProperty IRI="numOfSeats"/>
             <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
                 </FacetRestriction>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
@@ -556,10 +559,10 @@
             <DatatypeRestriction>
                 <Datatype abbreviatedIRI="xsd:positiveInteger"/>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
                 </FacetRestriction>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
@@ -814,8 +817,16 @@
         <Class IRI="Trunks"/>
     </DisjointClasses>
     <DisjointClasses>
+        <Class IRI="Company"/>
+        <Class IRI="Person"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="Motorcycle"/>
         <Class IRI="Trunks"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="dirt"/>
+        <Class IRI="road"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="dirtRacingBike"/>
@@ -2921,22 +2932,22 @@
         <Body>
             <ClassAtom>
                 <Class IRI="Vehicle"/>
-                <Variable IRI="v"/>
+                <Variable IRI="urn:swrl:var#v"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="productForTransport"/>
-                <Variable IRI="v"/>
-                <Variable IRI="p"/>
+                <Variable IRI="urn:swrl:var#v"/>
+                <Variable IRI="urn:swrl:var#p"/>
             </DataPropertyAtom>
             <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
-                <Variable IRI="p"/>
+                <Variable IRI="urn:swrl:var#p"/>
                 <Literal>Cars</Literal>
             </BuiltInAtom>
         </Body>
         <Head>
             <ClassAtom>
                 <Class IRI="fragileOnlyTrunk"/>
-                <Variable IRI="v"/>
+                <Variable IRI="urn:swrl:var#v"/>
             </ClassAtom>
         </Head>
     </DLSafeRule>

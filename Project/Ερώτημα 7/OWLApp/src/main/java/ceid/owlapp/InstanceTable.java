@@ -5,6 +5,10 @@
  */
 package ceid.owlapp;
 
+import com.hp.hpl.jena.ontology.Individual;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hive
@@ -14,6 +18,17 @@ public class InstanceTable extends javax.swing.JFrame {
     /**
      * Creates new form InstanceTable
      */
+    
+    public void addToTable(String wtitle, List<Individual> data){
+        
+        DefaultTableModel tableModel =(DefaultTableModel) instancesTable.getModel();
+        this.setTitle(wtitle);
+        for(Individual d: data){
+            tableModel.addRow(new Object[]{d});
+        }
+        
+    }
+    
     public InstanceTable() {
         initComponents();
     }
@@ -29,39 +44,31 @@ public class InstanceTable extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         instancesTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        instanceData = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         instancesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "Instances"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         instancesTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(instancesTable);
-
-        instanceData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        instanceData.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(instanceData);
+        if (instancesTable.getColumnModel().getColumnCount() > 0) {
+            instancesTable.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,19 +76,15 @@ public class InstanceTable extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,9 +95,7 @@ public class InstanceTable extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable instanceData;
     private javax.swing.JTable instancesTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

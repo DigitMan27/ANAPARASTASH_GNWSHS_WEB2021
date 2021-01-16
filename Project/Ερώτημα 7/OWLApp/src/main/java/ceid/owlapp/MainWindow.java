@@ -5,25 +5,40 @@
  */
 package ceid.owlapp;
 
+
+
+import com.hp.hpl.jena.ontology.Individual;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Map;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import openllet.owlapi.OpenlletReasoner;
-import openllet.owlapi.OpenlletReasonerFactory;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.reasoner.NodeSet;
+import org.mindswap.pellet.jena.PelletReasonerFactory;
+
+import com.hp.hpl.jena.ontology.OntClass;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.InfModel;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.reasoner.Reasoner;
+import com.hp.hpl.jena.util.FileManager;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
@@ -36,8 +51,10 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private File owlFile;
     private String path;
-    OpenlletReasoner reasoner1;
-    List<OWLClass> OWLlist = new  ArrayList<OWLClass>(); 
+    
+    Map<String,List<Individual>> indPerClass = new HashMap<String,List<Individual>>();
+    List<OntClass> classesList = new  ArrayList<OntClass>(); 
+    
     public MainWindow() {
         initComponents();
     }
@@ -57,6 +74,8 @@ public class MainWindow extends javax.swing.JFrame {
         filePathLabel = new javax.swing.JLabel();
         classesTable = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
+        addInstance = new javax.swing.JButton();
+        showInstances = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OWL");
@@ -95,15 +114,26 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         dataTable.getTableHeader().setReorderingAllowed(false);
-        dataTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dataTableMouseClicked(evt);
-            }
-        });
         classesTable.setViewportView(dataTable);
         if (dataTable.getColumnModel().getColumnCount() > 0) {
             dataTable.getColumnModel().getColumn(0).setResizable(false);
         }
+
+        addInstance.setText("Add");
+        addInstance.setEnabled(false);
+        addInstance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addInstanceMouseClicked(evt);
+            }
+        });
+
+        showInstances.setText("Show Instances");
+        showInstances.setEnabled(false);
+        showInstances.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showInstancesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,9 +146,14 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(loadOWL, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(filePathLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addInstance, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(showInstances)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(filePathLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -126,11 +161,14 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(classesTable, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(filePathLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loadOWL)
                     .addComponent(exit)
-                    .addComponent(filePathLabel))
+                    .addComponent(addInstance)
+                    .addComponent(showInstances))
                 .addContainerGap())
         );
 
@@ -142,51 +180,88 @@ public class MainWindow extends javax.swing.JFrame {
         FileFilter filter = new FileNameExtensionFilter("OWL file", "owl");
         jFileChooser.addChoosableFileFilter(filter);
         jFileChooser.setFileFilter(filter);
+        DefaultTableModel tableModel =(DefaultTableModel) dataTable.getModel();
+        dataTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         int returnVal = jFileChooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             owlFile = jFileChooser.getSelectedFile();
             path = owlFile.getAbsolutePath();
+            InputStream in = FileManager.get().open(path);
+            InputStreamReader rin = new InputStreamReader(in,Charset.forName("UTF-8").newDecoder());
             filePathLabel.setText(path);
-        }
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        try {
-            DefaultTableModel tableModel =(DefaultTableModel) dataTable.getModel();
-            OWLOntology owl = manager.loadOntologyFromOntologyDocument(owlFile);
-            java.util.Set<OWLClass> classes;
-            classes = owl.getClassesInSignature();
-            Integer i=0;
-            for(OWLClass cls: classes){
-                tableModel.addRow(new Object[]{cls}); 
-                OWLlist.add(cls);
-                //arr_classes[i]= cls;
-               // i++;
+            final OntModel model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC); // allagh sto bus : eisagwgh max orious ston ari8mo twn 8eswn mexri 1000
+            model.read(rin,null);
+            System.out.println("Ontology loaded!!");
+            
+            for (ExtendedIterator<OntClass> i =  model.listNamedClasses(); i.hasNext();) {
+                OntClass ontClass = i.next();
+                if("Thing".equals(ontClass.getLocalName()) || "Nothing".equals(ontClass.getLocalName())){
+                    //System.out.println("Thing!!!!!");
+                    continue;
+                }
+                List<Individual> instances = new  ArrayList<Individual>();
+               // logger.debug("Base class = " + ontClass);
+                System.out.println(ontClass.toString());
+                classesList.add(ontClass);
+                tableModel.addRow(new Object[]{ontClass});
+                ExtendedIterator<? extends OntResource> inst = ontClass.listInstances();
+                while(inst.hasNext()){
+                    Individual instance = (Individual) inst.next();
+                    instances.add(instance);
+                    //System.out.println(instance.toString());
+                }
+                indPerClass.put(ontClass.toString(),instances);
             }
-            final OpenlletReasoner reasoner = OpenlletReasonerFactory.getInstance().createReasoner(owl);
-            reasoner.getKB().realize();
-            reasoner1 = reasoner;
-        } catch (OWLOntologyCreationException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("END");
+            addInstance.setEnabled(true);
+            showInstances.setEnabled(true);
         }
+        
+        
     }//GEN-LAST:event_loadOWLMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         this.dispose();
     }//GEN-LAST:event_exitMouseClicked
-
-    private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
+/*
+    int row = dataTable.getSelectedRow();
+        Object owl_class_at_table = dataTable.getValueAt(row, 0);
         
+        String owl_class = classesList.get(row).toString();
+        //System.out.println("Class:" + owl_class);
+        //System.out.println("Class:" + hm.get(owl_class));
+        InstanceTable it = new InstanceTable();
+        it.addToTable(owl_class,indPerClass.get(owl_class));
+        it.setVisible(true);*/
+    private void addInstanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addInstanceMouseClicked
         int row = dataTable.getSelectedRow();
-        //Object owl_class_at_table = dataTable.getValueAt(row, 0);
-        OWLClass owl_class = OWLlist.get(row);
-        System.out.println("Class:" + owl_class.toString());
-       // InstanceTable it = new InstanceTable();
-       // it.setTitle("Class:"+owl_class.toString());
-        //it.setVisible(true);
-        NodeSet<OWLNamedIndividual> instances = reasoner1.getInstances(owl_class, false);
-        for(OWLNamedIndividual i:instances.getFlattened()){
-             System.out.println(i.getIRI().getFragment());
+        OntClass c = classesList.get(row);
+        ExtendedIterator<OntClass> cc = c.listSuperClasses();
+        int size=0;
+        while (cc.hasNext()){ 
+            OntClass ontClass = cc.next();
+            if(ontClass!=null)
+                size++; 
+            else break;
         }
-    }//GEN-LAST:event_dataTableMouseClicked
+        if(size==1){
+            OntClass ontClass = cc.next();
+            System.out.println(ontClass.toString());
+        }else{
+            while(cc.hasNext()){
+                OntClass ontClass = cc.next();
+                System.out.println(ontClass.toString());
+            }
+        }
+    }//GEN-LAST:event_addInstanceMouseClicked
+
+    private void showInstancesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showInstancesMouseClicked
+        int row = dataTable.getSelectedRow();
+        String owl_class = classesList.get(row).toString();
+        InstanceTable it = new InstanceTable();
+        it.addToTable(owl_class,indPerClass.get(owl_class));
+        it.setVisible(true);
+    }//GEN-LAST:event_showInstancesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -224,11 +299,13 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addInstance;
     private javax.swing.JScrollPane classesTable;
     private javax.swing.JTable dataTable;
     private javax.swing.JButton exit;
     private javax.swing.JLabel filePathLabel;
     private javax.swing.JFileChooser jFileChooser;
     private javax.swing.JButton loadOWL;
+    private javax.swing.JButton showInstances;
     // End of variables declaration//GEN-END:variables
 }

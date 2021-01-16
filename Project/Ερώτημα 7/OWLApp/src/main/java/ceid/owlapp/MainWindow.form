@@ -36,9 +36,15 @@
                   <Group type="102" attributes="0">
                       <Component id="loadOWL" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="filePathLabel" min="-2" pref="267" max="-2" attributes="0"/>
+                      <Component id="addInstance" min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="showInstances" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="exit" min="-2" pref="66" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="filePathLabel" min="-2" pref="125" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -50,11 +56,14 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="classesTable" min="-2" pref="223" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="filePathLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="loadOWL" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exit" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="filePathLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addInstance" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="showInstances" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -107,11 +116,26 @@
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dataTableMouseClicked"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="addInstance">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addInstanceMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="showInstances">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Show Instances"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="showInstancesMouseClicked"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
