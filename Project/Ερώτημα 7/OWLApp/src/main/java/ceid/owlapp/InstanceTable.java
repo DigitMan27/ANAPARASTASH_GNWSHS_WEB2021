@@ -19,11 +19,11 @@ public class InstanceTable extends javax.swing.JFrame {
      * Creates new form InstanceTable
      */
     
-    public void addToTable(String wtitle, List<Individual> data){
+    public void addToTable(String wtitle, List<String> data){
         
         DefaultTableModel tableModel =(DefaultTableModel) instancesTable.getModel();
         this.setTitle(wtitle);
-        for(Individual d: data){
+        for(String d: data){
             tableModel.addRow(new Object[]{d});
         }
         

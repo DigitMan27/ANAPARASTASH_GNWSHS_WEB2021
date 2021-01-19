@@ -35,8 +35,24 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.util.iterator.Filter;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import org.apache.jena.atlas.io.IndentedWriter;
+import org.mindswap.pellet.KnowledgeBase;
+import org.mindswap.pellet.jena.PelletInfGraph;
+
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.clarkparsia.pellet.sparqldl.jena.SparqlDLExecutionFactory;
+import org.mindswap.pellet.exceptions.InconsistentOntologyException;
+import org.mindswap.pellet.exceptions.InternalReasonerException;
 
 
 
@@ -51,8 +67,8 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private File owlFile;
     private String path;
-    
-    Map<String,List<Individual>> indPerClass = new HashMap<String,List<Individual>>();
+    public OntModel publicOwl;
+    Map<String,List<String>> indPerClass = new HashMap<String,List<String>>();
     List<OntClass> classesList = new  ArrayList<OntClass>(); 
     
     public MainWindow() {
@@ -187,72 +203,86 @@ public class MainWindow extends javax.swing.JFrame {
             owlFile = jFileChooser.getSelectedFile();
             path = owlFile.getAbsolutePath();
             InputStream in = FileManager.get().open(path);
-            InputStreamReader rin = new InputStreamReader(in,Charset.forName("UTF-8").newDecoder());
-            filePathLabel.setText(path);
+            InputStreamReader rin = new InputStreamReader(in);
+            filePathLabel.setText(owlFile.getName());
             final OntModel model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC); // allagh sto bus : eisagwgh max orious ston ari8mo twn 8eswn mexri 1000
-            model.read(rin,null);
+            try{
+                    // kapoies fores den epituxanetai to diabasma dioti gia kapoio logo ana8etei datatype se blank node
+                        model.read(rin,null);
+                        model.prepare();
+                        KnowledgeBase kb = ((PelletInfGraph) model.getGraph()).getKB();
+                        boolean consistent = kb.isConsistent();
+                        if(consistent){
+                            System.out.println("Ontology loaded!!");
+                            publicOwl = model;
+                        }else{
+                         throw new InconsistentOntologyException();
+                        }
+                       // System.out.println("Ontology loaded!!");
+            }catch(InconsistentOntologyException e){
+                //     continue;
+                JOptionPane.showMessageDialog(this, e);
+                    //return;
+            }
             System.out.println("Ontology loaded!!");
-            
-            for (ExtendedIterator<OntClass> i =  model.listNamedClasses(); i.hasNext();) {
-                OntClass ontClass = i.next();
+            //ExtendedIterator<OntClass> i =  model.listClasses().filterKeep(new Filter<OntClass>());
+            ExtendedIterator<OntClass> i = model.listNamedClasses();
+            while(i.hasNext()) {
+                OntClass ontClass = (OntClass) i.next();
                 if("Thing".equals(ontClass.getLocalName()) || "Nothing".equals(ontClass.getLocalName())){
                     //System.out.println("Thing!!!!!");
                     continue;
                 }
-                List<Individual> instances = new  ArrayList<Individual>();
-               // logger.debug("Base class = " + ontClass);
+                List<String> instances = new  ArrayList<String>();
                 System.out.println(ontClass.toString());
                 classesList.add(ontClass);
                 tableModel.addRow(new Object[]{ontClass});
-                ExtendedIterator<? extends OntResource> inst = ontClass.listInstances();
-                while(inst.hasNext()){
-                    Individual instance = (Individual) inst.next();
-                    instances.add(instance);
-                    //System.out.println(instance.toString());
+                String class_str = ontClass.toString();
+                String instancesQ = "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
+                                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+                                "PREFIX uni: <http://www.mydomain.com/vehicles/> "+
+                                "SELECT ?instances WHERE{"+
+                                "?x rdf:type owl:Class ."+
+                                "FILTER(?x=<"+class_str+">)"+
+                                "?instances rdf:type ?x .}";
+                Query query = QueryFactory.create(instancesQ);
+                //query.serialize(new IndentedWriter(System.out, true)); //serialize(new IndentedWriter(System.out, true));
+                QueryExecution qexec = SparqlDLExecutionFactory.create(query, model);
+                ResultSet rs = qexec.execSelect();
+                System.out.println("sparql");
+                try{
+                    if (rs.hasNext()) {
+                        for (; rs.hasNext();) {
+                            QuerySolution rb = rs.nextSolution();
+                            Resource res = rb.getResource("instances");
+                            System.out.println(res.toString());
+                            instances.add(res.toString());
+                        }
+                        qexec.close();
+                        indPerClass.put(ontClass.toString(), instances);
+                    }
+                }catch(InternalReasonerException err){
+                    instances.add("Instances didnt load");
+                }finally{
+                    indPerClass.put(ontClass.toString(), instances);
                 }
-                indPerClass.put(ontClass.toString(),instances);
             }
             System.out.println("END");
             addInstance.setEnabled(true);
             showInstances.setEnabled(true);
         }
         
-        
     }//GEN-LAST:event_loadOWLMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         this.dispose();
     }//GEN-LAST:event_exitMouseClicked
-/*
-    int row = dataTable.getSelectedRow();
-        Object owl_class_at_table = dataTable.getValueAt(row, 0);
-        
-        String owl_class = classesList.get(row).toString();
-        //System.out.println("Class:" + owl_class);
-        //System.out.println("Class:" + hm.get(owl_class));
-        InstanceTable it = new InstanceTable();
-        it.addToTable(owl_class,indPerClass.get(owl_class));
-        it.setVisible(true);*/
+
     private void addInstanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addInstanceMouseClicked
-        int row = dataTable.getSelectedRow();
-        OntClass c = classesList.get(row);
-        ExtendedIterator<OntClass> cc = c.listSuperClasses();
-        int size=0;
-        while (cc.hasNext()){ 
-            OntClass ontClass = cc.next();
-            if(ontClass!=null)
-                size++; 
-            else break;
-        }
-        if(size==1){
-            OntClass ontClass = cc.next();
-            System.out.println(ontClass.toString());
-        }else{
-            while(cc.hasNext()){
-                OntClass ontClass = cc.next();
-                System.out.println(ontClass.toString());
-            }
-        }
+        AddInstance addInstanceWindow = new AddInstance(classesList,publicOwl,path);
+        addInstanceWindow.setVisible(true);
+        
     }//GEN-LAST:event_addInstanceMouseClicked
 
     private void showInstancesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showInstancesMouseClicked

@@ -1371,7 +1371,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.mydomain.com/vehicles/formulaM1">
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Car"/>
-        <rdf:type rdf:resource="http://www.mydomain.com/vehicles/formula"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/racingCar"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/road"/>
         <hasOwner rdf:resource="http://www.mydomain.com/vehicles/company1"/>
@@ -1390,7 +1389,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.mydomain.com/vehicles/formulaM2">
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Car"/>
-        <rdf:type rdf:resource="http://www.mydomain.com/vehicles/formula"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/racingCar"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/road"/>
         <equivalentModel rdf:resource="http://www.mydomain.com/vehicles/formulaM1"/>
