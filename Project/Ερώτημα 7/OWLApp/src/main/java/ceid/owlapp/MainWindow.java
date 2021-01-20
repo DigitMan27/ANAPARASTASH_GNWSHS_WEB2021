@@ -6,17 +6,12 @@
 package ceid.owlapp;
 
 
-
-import com.hp.hpl.jena.ontology.Individual;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
@@ -26,30 +21,21 @@ import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntProperty;
-import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.rdf.model.InfModel;
-import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import com.hp.hpl.jena.util.iterator.Filter;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import org.apache.jena.atlas.io.IndentedWriter;
 import org.mindswap.pellet.KnowledgeBase;
 import org.mindswap.pellet.jena.PelletInfGraph;
 
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.clarkparsia.pellet.sparqldl.jena.SparqlDLExecutionFactory;
 import org.mindswap.pellet.exceptions.InconsistentOntologyException;
 import org.mindswap.pellet.exceptions.InternalReasonerException;
@@ -68,7 +54,6 @@ public class MainWindow extends javax.swing.JFrame {
     private File owlFile;
     private String path;
     public OntModel publicOwl;
-    Map<String,List<String>> indPerClass = new HashMap<String,List<String>>();
     List<OntClass> classesList = new  ArrayList<OntClass>(); 
     
     public MainWindow() {
@@ -205,74 +190,35 @@ public class MainWindow extends javax.swing.JFrame {
             InputStream in = FileManager.get().open(path);
             InputStreamReader rin = new InputStreamReader(in);
             filePathLabel.setText(owlFile.getName());
-            final OntModel model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC); // allagh sto bus : eisagwgh max orious ston ari8mo twn 8eswn mexri 1000
+            final OntModel model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
             try{
-                    // kapoies fores den epituxanetai to diabasma dioti gia kapoio logo ana8etei datatype se blank node
                         model.read(rin,null);
                         model.prepare();
                         KnowledgeBase kb = ((PelletInfGraph) model.getGraph()).getKB();
                         boolean consistent = kb.isConsistent();
                         if(consistent){
-                            System.out.println("Ontology loaded!!");
                             publicOwl = model;
                         }else{
                          throw new InconsistentOntologyException();
                         }
-                       // System.out.println("Ontology loaded!!");
             }catch(InconsistentOntologyException e){
-                //     continue;
                 JOptionPane.showMessageDialog(this, e);
-                    //return;
             }
-            System.out.println("Ontology loaded!!");
-            //ExtendedIterator<OntClass> i =  model.listClasses().filterKeep(new Filter<OntClass>());
+            //System.out.println("Ontology loaded!!");
             ExtendedIterator<OntClass> i = model.listNamedClasses();
             while(i.hasNext()) {
                 OntClass ontClass = (OntClass) i.next();
                 if("Thing".equals(ontClass.getLocalName()) || "Nothing".equals(ontClass.getLocalName())){
-                    //System.out.println("Thing!!!!!");
                     continue;
                 }
-                List<String> instances = new  ArrayList<String>();
-                System.out.println(ontClass.toString());
+                //System.out.println(ontClass.toString());
                 classesList.add(ontClass);
                 tableModel.addRow(new Object[]{ontClass});
-                String class_str = ontClass.toString();
-                String instancesQ = "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
-                                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-                                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
-                                "PREFIX uni: <http://www.mydomain.com/vehicles/> "+
-                                "SELECT ?instances WHERE{"+
-                                "?x rdf:type owl:Class ."+
-                                "FILTER(?x=<"+class_str+">)"+
-                                "?instances rdf:type ?x .}";
-                Query query = QueryFactory.create(instancesQ);
-                //query.serialize(new IndentedWriter(System.out, true)); //serialize(new IndentedWriter(System.out, true));
-                QueryExecution qexec = SparqlDLExecutionFactory.create(query, model);
-                ResultSet rs = qexec.execSelect();
-                System.out.println("sparql");
-                try{
-                    if (rs.hasNext()) {
-                        for (; rs.hasNext();) {
-                            QuerySolution rb = rs.nextSolution();
-                            Resource res = rb.getResource("instances");
-                            System.out.println(res.toString());
-                            instances.add(res.toString());
-                        }
-                        qexec.close();
-                        indPerClass.put(ontClass.toString(), instances);
-                    }
-                }catch(InternalReasonerException err){
-                    instances.add("Instances didnt load");
-                }finally{
-                    indPerClass.put(ontClass.toString(), instances);
-                }
             }
-            System.out.println("END");
+            //System.out.println("END");
             addInstance.setEnabled(true);
             showInstances.setEnabled(true);
         }
-        
     }//GEN-LAST:event_loadOWLMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
@@ -287,9 +233,36 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void showInstancesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showInstancesMouseClicked
         int row = dataTable.getSelectedRow();
+        List<String> instances = new  ArrayList<String>();
         String owl_class = classesList.get(row).toString();
+        String instancesQ = "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
+                                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+                                "PREFIX uni: <http://www.mydomain.com/vehicles/> "+
+                                "SELECT ?instances WHERE{"+
+                                "?x rdf:type owl:Class ."+
+                                "FILTER(?x=<"+owl_class+">)"+
+                                "?instances rdf:type ?x .}";
+        Query query = QueryFactory.create(instancesQ);
+        QueryExecution qexec = SparqlDLExecutionFactory.create(query, publicOwl);
+        ResultSet rs = qexec.execSelect();
+        try{
+            if (rs.hasNext()) {
+                for (; rs.hasNext();) {
+                    QuerySolution rb = rs.nextSolution();
+                    Resource res = rb.getResource("instances");
+                    //System.out.println(res.toString());
+                    instances.add(res.toString());
+                }
+                qexec.close();
+            }
+        }catch(InternalReasonerException err){
+            instances.add("Τα στιγμιότυπα δεν μπορεσαν να φορτώσουν (InternalReasonerException) ");
+        }catch(InconsistentOntologyException e){
+            JOptionPane.showMessageDialog(this, "Δεν μπορει να δειξει τα στιγμιοτυπα λογω ασυνεπειας .");
+        }
         InstanceTable it = new InstanceTable();
-        it.addToTable(owl_class,indPerClass.get(owl_class));
+        it.addToTable(owl_class,instances);
         it.setVisible(true);
     }//GEN-LAST:event_showInstancesMouseClicked
 

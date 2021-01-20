@@ -5,7 +5,6 @@
  */
 package ceid.owlapp;
 
-import com.hp.hpl.jena.ontology.Individual;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 

@@ -361,18 +361,21 @@
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="bus"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="numOfSeats"/>
-            <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:integer"/>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-                </FacetRestriction>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1000</Literal>
-                </FacetRestriction>
-            </DatatypeRestriction>
-        </DataSomeValuesFrom>
+        <ObjectIntersectionOf>
+            <Class IRI="CarTransport"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="numOfSeats"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1000</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="dirtRacingBike"/>
@@ -409,18 +412,10 @@
                 <Class IRI="racingCar"/>
                 <Class IRI="sport"/>
             </ObjectUnionOf>
-            <DataSomeValuesFrom>
+            <DataHasValue>
                 <DataProperty IRI="numOfSeats"/>
-                <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:integer"/>
-                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
-                    </FacetRestriction>
-                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
-                    </FacetRestriction>
-                </DatatypeRestriction>
-            </DataSomeValuesFrom>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+            </DataHasValue>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -523,18 +518,10 @@
         <ObjectIntersectionOf>
             <Class IRI="Trunks"/>
             <Class IRI="dirt"/>
-            <DataSomeValuesFrom>
+            <DataHasValue>
                 <DataProperty IRI="numOfSeats"/>
-                <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:integer"/>
-                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
-                    </FacetRestriction>
-                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
-                    </FacetRestriction>
-                </DatatypeRestriction>
-            </DataSomeValuesFrom>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">1</Literal>
+            </DataHasValue>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -542,30 +529,33 @@
         <DataSomeValuesFrom>
             <DataProperty IRI="numOfSeats"/>
             <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:integer"/>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
                 </FacetRestriction>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">3</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="van"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="numOfSeats"/>
-            <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
-                </FacetRestriction>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-                </FacetRestriction>
-            </DatatypeRestriction>
-        </DataSomeValuesFrom>
+        <ObjectIntersectionOf>
+            <Class IRI="CarTransport"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="numOfSeats"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">6</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">10</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Car"/>
@@ -804,13 +794,6 @@
     <SubClassOf>
         <Class IRI="van"/>
         <Class IRI="CarTransport"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="van"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="numOfSeats"/>
-            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-        </DataMaxCardinality>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="Car"/>

@@ -527,22 +527,27 @@
 
     <owl:Class rdf:about="http://www.mydomain.com/vehicles/bus">
         <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
-                <owl:someValuesFrom>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:minExclusive>
-                            </rdf:Description>
-                            <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</xsd:maxInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:someValuesFrom>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.mydomain.com/vehicles/CarTransport"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">10</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1000</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.mydomain.com/vehicles/Car"/>
         <rdfs:subClassOf rdf:resource="http://www.mydomain.com/vehicles/CarTransport"/>
@@ -670,19 +675,7 @@
                     </owl:Class>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
-                        <owl:someValuesFrom>
-                            <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                                <owl:withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:maxInclusive>
-                                    </rdf:Description>
-                                </owl:withRestrictions>
-                            </rdfs:Datatype>
-                        </owl:someValuesFrom>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -692,7 +685,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1009,19 +1002,7 @@
                     <rdf:Description rdf:about="http://www.mydomain.com/vehicles/dirt"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
-                        <owl:someValuesFrom>
-                            <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                                <owl:withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:maxInclusive>
-                                    </rdf:Description>
-                                </owl:withRestrictions>
-                            </rdfs:Datatype>
-                        </owl:someValuesFrom>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1047,13 +1028,13 @@
                 <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
                         <owl:withRestrictions rdf:parseType="Collection">
                             <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</xsd:minInclusive>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">3</xsd:minInclusive>
                             </rdf:Description>
                             <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</xsd:maxInclusive>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">3</xsd:maxInclusive>
                             </rdf:Description>
                         </owl:withRestrictions>
                     </rdfs:Datatype>
@@ -1065,7 +1046,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1076,31 +1057,29 @@
 
     <owl:Class rdf:about="http://www.mydomain.com/vehicles/van">
         <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
-                <owl:someValuesFrom>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</xsd:minExclusive>
-                            </rdf:Description>
-                            <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:maxInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:someValuesFrom>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.mydomain.com/vehicles/CarTransport"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">6</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">10</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.mydomain.com/vehicles/CarTransport"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.mydomain.com/vehicles/numOfSeats"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1371,6 +1350,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.mydomain.com/vehicles/formulaM1">
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Car"/>
+        <rdf:type rdf:resource="http://www.mydomain.com/vehicles/formula"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/racingCar"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/road"/>
         <hasOwner rdf:resource="http://www.mydomain.com/vehicles/company1"/>
@@ -1389,6 +1369,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.mydomain.com/vehicles/formulaM2">
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Car"/>
+        <rdf:type rdf:resource="http://www.mydomain.com/vehicles/formula"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/racingCar"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/road"/>
         <equivalentModel rdf:resource="http://www.mydomain.com/vehicles/formulaM1"/>
@@ -1576,7 +1557,6 @@
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Motorcycle"/>
         <rdf:type rdf:resource="http://www.mydomain.com/vehicles/road"/>
         <ModelAge rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">2003</ModelAge>
-        <ModelName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">ΡΒΕ900</ModelName>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">400.0</Price>
         <fuelType>Petrol</fuelType>
         <horsePower rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</horsePower>
@@ -1655,6 +1635,22 @@
         <fuelType>Electrism</fuelType>
         <horsePower rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</horsePower>
         <numOfSeats rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</numOfSeats>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.mydomain.com/vehicles/testV -->
+
+    <owl:NamedIndividual rdf:about="http://www.mydomain.com/vehicles/testV">
+        <rdf:type rdf:resource="http://www.mydomain.com/vehicles/Vehicle"/>
+        <hasOwner rdf:resource="http://www.mydomain.com/vehicles/person2"/>
+        <manufacturedBy rdf:resource="http://www.mydomain.com/vehicles/USA"/>
+        <ModelAge rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">2019</ModelAge>
+        <ModelName rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">VHI78</ModelName>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4500.56</Price>
+        <fuelType>Electrism</fuelType>
+        <horsePower rdf:datatype="http://www.w3.org/2001/XMLSchema#double">600.0</horsePower>
+        <numOfSeats rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">2</numOfSeats>
     </owl:NamedIndividual>
     
 

@@ -6,38 +6,27 @@
 
 package ceid.owlapp;
 
-import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.datatypes.xsd.impl.XMLLiteralType;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.reasoner.Reasoner;
-import com.hp.hpl.jena.reasoner.ValidityReport;
-import com.hp.hpl.jena.util.FileManager;
-import static com.hp.hpl.jena.vocabulary.XSD.integer;
-import java.awt.Component;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.mindswap.pellet.KnowledgeBase;
 import org.mindswap.pellet.exceptions.InconsistentOntologyException;
 import org.mindswap.pellet.jena.PelletInfGraph;
-import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 /**
  *
@@ -106,6 +95,7 @@ public class AddInstance extends javax.swing.JFrame {
         fuelType = new javax.swing.JComboBox<>();
         productForTransport = new javax.swing.JComboBox<>();
         owner_sex = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Instance");
@@ -162,9 +152,9 @@ public class AddInstance extends javax.swing.JFrame {
 
         numOfSeats.setEnabled(false);
 
-        jLabel12.setText("Sold:");
+        jLabel12.setText("Sold(*):");
 
-        jLabel13.setText("Owns:");
+        jLabel13.setText("Owns(*):");
 
         soldVehicle.setEnabled(false);
 
@@ -191,6 +181,8 @@ public class AddInstance extends javax.swing.JFrame {
         owner_sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female" }));
         owner_sex.setEnabled(false);
 
+        jLabel17.setText("Τα πεδία με * μπορουν να παρουν παραπανω απο 1 τιμες χωρισμενες με κομμα");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,23 +195,11 @@ public class AddInstance extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator3)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(numOfSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(vehiclePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel10)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fuelType, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(horsePower, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(applyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -233,52 +213,68 @@ public class AddInstance extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(checkTypes))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(age_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addComponent(soldVehicle)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jLabel13))
+                                                    .addComponent(owner_email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(owner_sex, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(ownsVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(numOfSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                        .addComponent(jLabel8)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(vehiclePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(jLabel10)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(fuelType, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(horsePower, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(age_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(manuafacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(94, 94, 94)
+                                                .addComponent(jLabel11)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(productForTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(soldVehicle)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(owner_email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(owner_sex, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6))
-                                            .addComponent(ownsVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(manuafacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(94, 94, 94)
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(productForTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(hasOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(soldBy)))
+                                                .addComponent(jLabel15)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(hasOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(soldBy)))))
                                 .addGap(0, 407, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -334,12 +330,17 @@ public class AddInstance extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(soldBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(productForTransport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(manuafacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(applyBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(manuafacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addComponent(applyBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel17)))
                 .addContainerGap())
         );
 
@@ -349,6 +350,7 @@ public class AddInstance extends javax.swing.JFrame {
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
 
         String indName = individualNameTxt.getText();
+        List<JTextField> widgets = new ArrayList<JTextField>();
         if(indName.length()==0){
             JOptionPane.showMessageDialog(this, "Το πεδίο κειμένου είναι άδειο");
         }else{
@@ -364,15 +366,21 @@ public class AddInstance extends javax.swing.JFrame {
                 DatatypeProperty dataPrice = publicOwl.getDatatypeProperty(namespace+"Price");
                 DatatypeProperty dataSeats = publicOwl.getDatatypeProperty(namespace+"numOfSeats");
                 DatatypeProperty dataProduct = publicOwl.getDatatypeProperty(namespace+"productForTransport");
+                widgets.add(individualNameTxt);
+                widgets.add(name_txt);
+                widgets.add(age_txt);
+                widgets.add(manuafacturedBy);
+                widgets.add(hasOwner);
+                widgets.add(vehiclePrice);
+                widgets.add(numOfSeats);
+                widgets.add(horsePower);
+                widgets.add(soldBy);
                 if(name_txt.getText().length()>0){
-                    System.out.println("name");
                     Literal l = publicOwl.createTypedLiteral(name_txt.getText(), "http://www.w3.org/2000/01/rdf-schema#Literal");
                     individual.addProperty(dataName,l);
                 }if(age_txt.getText().length()>0){
-                    System.out.println("age");
                     individual.addProperty(dataAge,publicOwl.createTypedLiteral(age_txt.getText(), XSDDatatype.XSDpositiveInteger));
                 }if(manuafacturedBy.getText().length()>0){
-                    System.out.println("manufact");
                     Individual country = publicOwl.getIndividual(namespace + manuafacturedBy.getText());
                     if(country==null){
                         JOptionPane.showMessageDialog(this, "Η χώρα που δίαλεξες δεν είναι καταχυρωμένη !");
@@ -381,7 +389,6 @@ public class AddInstance extends javax.swing.JFrame {
                         individual.addProperty(objmanuafacturedBy,publicOwl.createResource(namespace+country.getLocalName()));
                     }
                 }if(hasOwner.getText().length()>0){
-                    System.out.println("owner");
                     Individual owner = publicOwl.getIndividual(namespace + hasOwner.getText());
                     if(owner==null) {
                         JOptionPane.showMessageDialog(this, "Ο πελάτης που δήλωσες δεν έχει καταχωρηθεί");
@@ -390,16 +397,12 @@ public class AddInstance extends javax.swing.JFrame {
                         individual.addProperty(objHasOwner, publicOwl.createResource(namespace+owner.getLocalName()));
                     }
                 }if(vehiclePrice.getText().length()>0){
-                    System.out.println("price");
                     individual.addProperty(dataPrice,publicOwl.createTypedLiteral(vehiclePrice.getText(), XSDDatatype.XSDdouble));
                 }if(numOfSeats.getText().length()>0){
-                    System.out.println("seats");
-                    individual.addProperty(dataSeats,publicOwl.createTypedLiteral(numOfSeats.getText(), XSDDatatype.XSDinteger));
+                    individual.addProperty(dataSeats,publicOwl.createTypedLiteral(numOfSeats.getText(), XSDDatatype.XSDpositiveInteger));
                 }if(horsePower.getText().length()>0){ 
-                    System.out.println("power");
-                    individual.addProperty(dataPower,publicOwl.createTypedLiteral(numOfSeats.getText(), XSDDatatype.XSDdouble));
+                    individual.addProperty(dataPower,publicOwl.createTypedLiteral(horsePower.getText(), XSDDatatype.XSDdouble));
                 }if(productForTransport.getSelectedItem().equals("None")==false){
-                    System.out.println("prod");
                     individual.addProperty(dataProduct, (String) productForTransport.getSelectedItem());
                 }if(soldBy.getText().length()>0){
                     Individual owner1 = publicOwl.getIndividual(namespace + soldBy.getText());
@@ -425,6 +428,13 @@ public class AddInstance extends javax.swing.JFrame {
                         } catch (IOException ex) {
                             Logger.getLogger(AddInstance.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        for(JTextField t: widgets){
+                            t.setText("");
+                            t.setEnabled(false);
+                        }
+                        fuelType.setEnabled(false);
+                        productForTransport.setEnabled(false);
+                        
                     }
                 }catch(InconsistentOntologyException e){
                     JOptionPane.showMessageDialog(this, e);
@@ -434,7 +444,6 @@ public class AddInstance extends javax.swing.JFrame {
                 Individual individual = publicOwl.createIndividual(namespace+indName,cls);
                 DatatypeProperty dataName = publicOwl.getDatatypeProperty(namespace+"CountryName");
                 if (name_txt.getText().length() > 0) {
-                    System.out.println("name");
                     Literal l = publicOwl.createTypedLiteral(name_txt.getText(), "http://www.w3.org/2000/01/rdf-schema#Literal");
                     individual.addProperty(dataName, l);
                 }
@@ -452,6 +461,10 @@ public class AddInstance extends javax.swing.JFrame {
                         } catch (IOException ex) {
                             Logger.getLogger(AddInstance.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        individualNameTxt.setText("");
+                        individualNameTxt.setEnabled(false);
+                        name_txt.setText("");
+                        name_txt.setEnabled(false);
                     }
                 } catch (InconsistentOntologyException e) {
                     JOptionPane.showMessageDialog(this, e);
@@ -465,6 +478,12 @@ public class AddInstance extends javax.swing.JFrame {
                 DatatypeProperty dataEmail = publicOwl.getDatatypeProperty(namespace+"email");
                 ObjectProperty objSold = publicOwl.getObjectProperty(namespace+"sold");
                 ObjectProperty objowns = publicOwl.getObjectProperty(namespace+"owns");
+                widgets.add(individualNameTxt);
+                widgets.add(name_txt);
+                widgets.add(age_txt);
+                widgets.add(owner_email_txt);
+                widgets.add(soldVehicle);
+                widgets.add(ownsVehicle);
                 if(name_txt.getText().length() > 0){
                     Literal l = publicOwl.createTypedLiteral(name_txt.getText(), "http://www.w3.org/2000/01/rdf-schema#Literal");
                     individual.addProperty(dataName, l);
@@ -519,9 +538,7 @@ public class AddInstance extends javax.swing.JFrame {
                     }else{
                         Individual ind = publicOwl.getIndividual(namespace + ownsVehicle.getText());
                         if(ind==null){
-                            //System.out.println("Null");
                             JOptionPane.showMessageDialog(this, "Το όχημα που δήλωσες δεν έχει καταχωρηθεί");
-                            //return ;
                         }
                         if(ind.isIndividual()){
                             individual.addProperty(objowns, publicOwl.createResource(namespace+ind.getLocalName()));
@@ -545,6 +562,11 @@ public class AddInstance extends javax.swing.JFrame {
                         } catch (IOException ex) {
                             Logger.getLogger(AddInstance.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        for (JTextField t : widgets) {
+                            t.setText("");
+                            t.setEnabled(false);
+                        }
+                        owner_sex.setEnabled(false);
                     }
                 } catch (InconsistentOntologyException e) {
                     JOptionPane.showMessageDialog(this, e);
@@ -568,7 +590,6 @@ public class AddInstance extends javax.swing.JFrame {
             for(OntClass c: classesList){   
                 String name = c.getLocalName();
                 if(this.checkString(name,txt)){
-                    System.out.println("Correct class\1");
                     cls = c;
                     flag = true;
                     break;
@@ -636,6 +657,7 @@ public class AddInstance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
