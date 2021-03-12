@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding = "UTF-8" ?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:uni="http://www.mydomain.org/uni-ns/">
+
+	<rdf:Description rdf:about="http://mydomain/Statement1">
+		<rdf:subject rdf:resource="Τμήμα Η/Υ και Πληροφορικής"/>
+		<rdf:predicate rdf:resource="βρίσκεται"/>
+		<rdf:object rdf:resource="Ρίο"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="Google">
+		<uni:reports rdf:resource="http://mydomain/Statement1"/>
+	</rdf:Description>
+
+</rdf:RDF>
+	
+
+	
